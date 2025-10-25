@@ -681,3 +681,67 @@ html {
   box-shadow: 0 0 20px rgba(245, 215, 123, 0.9);
   transform: translateY(-2px) scale(1.02);
 }
+
+
+/* ==============================
+   Contact Form - W.O.L.F. Wellness
+   ============================== */
+.contact-section {
+  background: radial-gradient(circle at top left, #1b1b1b 60%, #121212 100%);
+  padding: 80px 20px;
+  color: #f5f0e1;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  opacity: 0.85;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(212,175,55,0.3);
+  background-color: #222;
+  color: #f5f0e1;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #d4af37;
+  outline: none;
+}
+
+.success-message {
+  display: none;
+  color: #d4af37;
+  font-weight: 600;
+  margin-top: 16px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
