@@ -217,6 +217,9 @@
 
 
 
+
+
+
 </head>
 <body>
   <!-- Hero Section -->
@@ -394,7 +397,71 @@
 
 
 
+
 <div class="section-divider"></div>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+  <h2>Client Transformations</h2>
+  <p class="intro">Honest feedback from clients who’ve worked with W.O.L.F. Wellness to improve their energy, health, and mindset.</p>
+
+  <div class="testimonial-carousel">
+    <div class="testimonial active">
+      <blockquote>
+        “I used to dread workouts, but now I actually look forward to them. I have more energy, and my clothes fit better without starving myself.”
+      </blockquote>
+      <figcaption>— Sarah L., Miami</figcaption>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        “I travel a lot for work, so it was hard to stay consistent. The virtual sessions keep me on track and make it easy to stick with the plan.”
+      </blockquote>
+      <figcaption>— Mark D., Virtual Client</figcaption>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        “It’s not just workouts — it’s a lifestyle. I eat better, sleep better, and feel more confident than I have in years.”
+      </blockquote>
+      <figcaption>— Jasmine P., Executive Program</figcaption>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        “The coaching style is real and straightforward. I didn’t have to change everything overnight — just one step at a time, and it worked.”
+      </blockquote>
+      <figcaption>— Daniel R., Miami</figcaption>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        “I finally understand what works for me. The nutrition plan made sense, and I’ve kept my progress for months now.”
+      </blockquote>
+      <figcaption>— Olivia C., Virtual Client</figcaption>
+    </div>
+
+    <div class="testimonial">
+      <blockquote>
+        “I came in just wanting to lose weight, but I got so much more. I feel focused, strong, and balanced — it’s been a game changer.”
+      </blockquote>
+      <figcaption>— James T., Miami</figcaption>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="carousel-btn prev" aria-label="Previous testimonial">&#10094;</button>
+  <button class="carousel-btn next" aria-label="Next testimonial">&#10095;</button>
+
+<div class="carousel-dots"></div>
+
+</section>
+
+<div class="section-divider"></div>
+
+
+
 
   <!-- Contact Section -->
 <section id="contact" class="contact-section">
@@ -497,6 +564,118 @@
     }
   });
 </script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.testimonial-carousel');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.testimonial');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const dotsContainer = document.querySelector('.carousel-dots');
+
+  if (!slides.length || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  let index = 0;
+  let timer;
+
+  // Create navigation dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('carousel-dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      transitionTo(i);
+      restart();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  // Main transition function with longer fade-out pause
+  function transitionTo(nextIndex) {
+    if (nextIndex === index) return;
+
+    const prev = slides[index];
+    const next = slides[nextIndex];
+
+    // Update dots
+    dots.forEach(d => d.classList.remove('active'));
+    dots[nextIndex].classList.add('active');
+
+    // Start fade-out of previous slide (slower and smoother)
+    prev.classList.remove('active');
+    prev.classList.add('exiting');
+
+    // Wait until fade-out completes before showing next
+    setTimeout(() => {
+      prev.classList.remove('exiting');
+      next.classList.add('active');
+      index = nextIndex;
+    }, 1000); // 1s delay for full fade-out before next fade-up
+  }
+
+  // Move to next or previous testimonial
+  function next() {
+    const nextIndex = (index + 1) % slides.length;
+    transitionTo(nextIndex);
+  }
+
+  function prev() {
+    const prevIndex = (index - 1 + slides.length) % slides.length;
+    transitionTo(prevIndex);
+  }
+
+  // Button interactions
+  nextBtn.addEventListener('click', () => { next(); restart(); });
+  prevBtn.addEventListener('click', () => { prev(); restart(); });
+
+  // Auto-rotation every 10 seconds with smooth transitions
+  function start() {
+    timer = setInterval(() => {
+      const nextIndex = (index + 1) % slides.length;
+      transitionTo(nextIndex);
+    }, 10000);
+  }
+
+  function restart() {
+    clearInterval(timer);
+    start();
+  }
+
+  // Initialize
+  slides[index].classList.add('active');
+  start();
+});
+</script>
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Auto shimmer sweep every 15s for visible testimonials
+  setInterval(() => {
+    const activeTestimonial = document.querySelector('.testimonial.active');
+    if (activeTestimonial) {
+      activeTestimonial.classList.add('auto-shimmer');
+      setTimeout(() => {
+        activeTestimonial.classList.remove('auto-shimmer');
+      }, 2800); // remove class after animation ends
+    }
+  }, 11000); // every 11 seconds
+});
+</script>
+
+
 
 
 </body>
