@@ -44,7 +44,7 @@ body {
 .hero * {
   position: relative;
   z-index: 1;
-}
+}  
 
 
 
@@ -1266,3 +1266,281 @@ html {
   animation-delay: 0.35s;
   animation-fill-mode: both;
 }
+
+
+
+/* === Restore gold glow for W.O.L.F. Wellness hero title === */
+.hero-text h1,
+.hero-text .hero-title,
+.hero-section h1,
+.hero-section .hero-text-title {
+  color: #d4af37 !important; /* Rich gold tone */
+  text-shadow:
+    0 0 8px rgba(212, 175, 55, 0.6),
+    0 0 16px rgba(212, 175, 55, 0.4),
+    0 0 32px rgba(212, 175, 55, 0.3);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.25));
+}
+
+/* Add extra glow to highlighted letters */
+.hero-text h1 span,
+.hero-text .hero-title span {
+  color: #f5d76e !important;
+  text-shadow:
+    0 0 12px rgba(245, 215, 110, 0.8),
+    0 0 20px rgba(245, 215, 110, 0.6),
+    0 0 30px rgba(245, 215, 110, 0.4);
+}
+
+/* Ensure shimmer or hover effects do not override this */
+.hero-text h1:hover,
+.hero-section h1:hover {
+  text-shadow:
+    0 0 8px rgba(212, 175, 55, 0.6),
+    0 0 16px rgba(212, 175, 55, 0.4),
+    0 0 32px rgba(212, 175, 55, 0.3);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.25));
+}
+
+
+
+
+/* === Fix: Restore gold glow for W.O.L.F. Wellness hero title === */
+.hero .hero-title {
+  color: #d4af37 !important;
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.8),
+    0 0 20px rgba(212, 175, 55, 0.6),
+    0 0 35px rgba(212, 175, 55, 0.4),
+    0 0 45px rgba(212, 175, 55, 0.2);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+  transition: none !important; /* prevents shimmer or hover fading */
+}
+
+/* Make sure the W, O, L, F letters have extra glow */
+.hero .tagline .gold {
+  color: #f5d76e !important;
+  text-shadow:
+    0 0 15px rgba(245, 215, 110, 0.9),
+    0 0 25px rgba(245, 215, 110, 0.6),
+    0 0 40px rgba(245, 215, 110, 0.4);
+  filter: drop-shadow(0 0 6px rgba(245, 215, 110, 0.3));
+}
+
+/* Disable shimmer hover effects globally if present */
+.hero .hero-title:hover,
+.hero .tagline .gold:hover {
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.8),
+    0 0 20px rgba(212, 175, 55, 0.6),
+    0 0 35px rgba(212, 175, 55, 0.4),
+    0 0 45px rgba(212, 175, 55, 0.2);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+  transform: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
+/* === Disable shimmer on hover only === */
+.testimonial-carousel .testimonial:hover::after {
+  animation: none !important;
+}
+
+
+/* === Fix the W, O, L, F glow box issue === */
+.hero .tagline .gold {
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  mix-blend-mode: normal !important;
+  display: inline !important;
+  color: #f5d76e !important;
+  text-shadow:
+    0 0 15px rgba(245, 215, 110, 0.9),
+    0 0 25px rgba(245, 215, 110, 0.6),
+    0 0 40px rgba(245, 215, 110, 0.4);
+}
+
+
+/* === Subtle pulsing gold glow for W, O, L, F letters === */
+@keyframes softGoldPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(245, 215, 110, 0.6),
+      0 0 16px rgba(245, 215, 110, 0.4),
+      0 0 28px rgba(245, 215, 110, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(245, 215, 110, 0.9),
+      0 0 24px rgba(245, 215, 110, 0.6),
+      0 0 36px rgba(245, 215, 110, 0.4);
+  }
+}
+
+.hero .tagline .gold {
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  mix-blend-mode: normal !important;
+  display: inline !important;
+  color: #f5d76e !important;
+  animation: softGoldPulse 3s ease-in-out infinite;
+}
+
+
+
+/* === Match W.O.L.F. Wellness title color + add pulsing glow === */
+.hero-title {
+  color: #f5d76e !important; /* same base gold tone as W, O, L, F letters */
+  text-shadow:
+    0 0 8px rgba(245, 215, 110, 0.6),
+    0 0 16px rgba(245, 215, 110, 0.4),
+    0 0 28px rgba(245, 215, 110, 0.2);
+  animation: softGoldPulse 3s ease-in-out infinite;
+  filter: none !important;
+}
+
+/* Shared animation already defined, but included again in case you’re pasting fresh */
+@keyframes softGoldPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(245, 215, 110, 0.6),
+      0 0 16px rgba(245, 215, 110, 0.4),
+      0 0 28px rgba(245, 215, 110, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(245, 215, 110, 0.9),
+      0 0 24px rgba(245, 215, 110, 0.6),
+      0 0 36px rgba(245, 215, 110, 0.4);
+  }
+}
+
+
+
+
+/* === Restore smooth top-to-bottom fade-in for hero elements === */
+.hero img.logo,
+.hero-title,
+.hero .tagline,
+.hero .btn-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 1s ease-out forwards;
+}
+
+.hero img.logo {
+  animation-delay: 0.2s;
+}
+
+.hero-title {
+  animation-delay: 0.8s;
+}
+
+.hero .tagline {
+  animation-delay: 1.4s;
+}
+
+.hero .btn-scroll {
+  animation-delay: 2.0s;
+}
+
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* === RESTORE HERO SEQUENCE ANIMATION (logo → title → tagline → button) === */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reset all hero items to be visible again */
+.hero img.logo,
+.hero .hero-title,
+.hero .tagline,
+.hero .btn-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+}
+
+/* Stagger the animation delays */
+.hero img.logo {
+  animation-delay: 0.2s;
+}
+.hero .hero-title {
+  animation-delay: 0.8s;
+}
+.hero .tagline {
+  animation-delay: 1.4s;
+}
+.hero .btn-scroll {
+  animation-delay: 2s;
+}
+
+/* Keep the luxurious gold glow intact */
+.hero .hero-title,
+.hero .tagline .gold {
+  color: #f5d76e;
+  text-shadow:
+    0 0 8px rgba(245, 215, 110, 0.6),
+    0 0 16px rgba(245, 215, 110, 0.4),
+    0 0 28px rgba(245, 215, 110, 0.2);
+}
+
+/* Subtle continuous glow for both title and W.O.L.F. acronym letters */
+@keyframes softGoldPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(245, 215, 110, 0.6),
+      0 0 16px rgba(245, 215, 110, 0.4),
+      0 0 28px rgba(245, 215, 110, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(245, 215, 110, 0.9),
+      0 0 24px rgba(245, 215, 110, 0.6),
+      0 0 36px rgba(245, 215, 110, 0.4);
+  }
+}
+
+.hero .hero-title {
+  animation: fadeSlideIn 1.2s ease-out forwards, softGoldPulse 4s ease-in-out infinite;
+  animation-delay: 0.8s, 2.8s; /* fade first, then begin pulse */
+}
+
+.hero .tagline .gold {
+  animation: fadeSlideIn 1.2s ease-out forwards, softGoldPulse 4s ease-in-out infinite;
+  animation-delay: 1.4s, 3.4s;
+}
+
+
+
+
+
+
+
