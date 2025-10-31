@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply | W.O.L.F. Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="apply.css">
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- ============================= -->
+  <!-- Google Tag Manager Placeholder -->
+  <!-- Replace GTM-XXXXXXX with your actual Tag Manager ID -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+
+  <!-- ============================= -->
+  <!-- Meta Pixel Code Placeholder -->
+  <!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="hero">
+    <div class="hero-content fade-in">
+      <h1>Reclaim Your Energy, Focus & Strength</h1>
+      <p>A personalized 1:1 virtual wellness system for high-performing professionals ready to optimize performance, confidence, and longevity — in just two 30-minute sessions per week.</p>
+      <button class="cta-button" onclick="document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })">Apply Now</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="apply" class="fade-in">
+      <h2>Apply for Your Executive Energy Audit</h2>
+      <p>Applications are limited each quarter to ensure personalized attention. If you’re ready to elevate your body and mind, complete the form below and schedule your complimentary consultation.</p>
+
+      <form class="fade-in apply-form" action="https://formspree.io/f/yourformid" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="profession">Profession / Role</label>
+        <input type="text" id="profession" name="profession">
+
+        <label for="goal">Primary Goal</label>
+        <select id="goal" name="goal" required>
+          <option value="">Select one</option>
+          <option value="energy">Rebuild Energy & Vitality</option>
+          <option value="stress">Reduce Stress & Burnout</option>
+          <option value="strength">Increase Strength & Mobility</option>
+          <option value="composition">Improve Body Composition</option>
+        </select>
+
+        <label for="message">Tell us about your current challenges or goals</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+
+        <label for="commitment">Are you ready to invest in your health at a high level?</label>
+        <select id="commitment" name="commitment" required>
+          <option value="yes">Yes</option>
+          <option value="no">Not yet</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section fade-in">
+      <h3>Trusted by High-Performing Professionals</h3>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <h4>Who This Is For</h4>
+          <p>Executives, founders, and elite professionals seeking to reclaim vitality, sharpen focus, and operate at peak performance without sacrificing family or business priorities.</p>
+        </div>
+        <div class="trust-card">
+          <h4>Who This Is Not For</h4>
+          <p>Those looking for quick fixes or generic programs. This coaching is designed for individuals who value precision, accountability, and long-term transformation.</p>
+        </div>
+        <div class="trust-card">
+          <h4>Client Feedback</h4>
+          <p>“In 90 days, my energy levels are unrecognizable. I’m sharper in meetings, sleeping better, and stronger than I’ve been in years.” — <strong>James W., Managing Partner</strong></p>
+          <p>“This program rebuilt not just my body, but my leadership clarity.” — <strong>Dr. Sarah L., CMO</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 W.O.L.F. Wellness — Wellness. Optimized. | <a href="index.html">Return to Main Site</a></p>
+  </footer>
+
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target); // only once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".apply-form, .trust-card").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+
+</body>
+</html>

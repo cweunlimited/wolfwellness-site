@@ -1,0 +1,336 @@
+/* ==============================
+   W.O.L.F. Wellness Apply & Thank-You Pages CSS
+   Cinematic Breathing Parallax + Elegant Form & Trust Animations
+   ============================== */
+
+:root {
+  --primary: #b5985a;
+  --primary-hover: #caa65e;
+  --dark-bg: #0f1e17;
+  --light-bg: #14261d;
+  --text: #e6e6e6;
+  --muted: #999;
+  --heading: 'Playfair Display', serif;
+  --body: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  background-color: var(--dark-bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(rgba(15,30,23,0.6), rgba(15,30,23,0.8)),
+              url('hero-bg.jpg') center center / cover no-repeat fixed;
+  background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: -1;
+  animation: parallaxBreath 25s ease-in-out infinite alternate;
+}
+
+@keyframes parallaxBreath {
+  from { background-position: center center; }
+  to { background-position: center 15px; }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, var(--dark-bg));
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeIn 2s ease;
+}
+
+.hero-content h1 {
+  font-family: var(--heading);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #f4f4f4;
+}
+
+.cta-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+/* MAIN SECTIONS */
+main { background-color: var(--dark-bg); }
+
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2, h3 {
+  font-family: var(--heading);
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary-hover);
+}
+
+p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* APPLY FORM */
+.apply-form {
+  background-color: var(--light-bg);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out;
+}
+
+.apply-form.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.apply-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.apply-form input,
+.apply-form select,
+.apply-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #e6e6e6;
+  color: #111;
+  transition: box-shadow 0.3s ease;
+}
+
+.apply-form input:focus,
+.apply-form select:focus,
+.apply-form textarea:focus {
+  box-shadow: 0 0 8px var(--primary);
+  outline: none;
+}
+
+.apply-form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.apply-form button:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.03);
+}
+
+/* TRUST SECTION */
+.trust-section {
+  background: linear-gradient(to bottom, #13221a, var(--dark-bg));
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at top center, rgba(255,255,255,0.05), transparent 60%);
+  z-index: 0;
+}
+
+.trust-section h3 {
+  font-family: var(--heading);
+  font-size: 1.8rem;
+  color: var(--primary-hover);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-card {
+  background-color: var(--light-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.trust-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay left→right */
+.trust-card:nth-child(1) { transition-delay: 0s; }
+.trust-card:nth-child(2) { transition-delay: 0.2s; }
+.trust-card:nth-child(3) { transition-delay: 0.4s; }
+.trust-card:nth-child(4) { transition-delay: 0.6s; }
+.trust-card:nth-child(5) { transition-delay: 0.8s; }
+
+.trust-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.trust-card h4 {
+  font-family: var(--heading);
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.trust-card p {
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* THANK-YOU PAGE */
+.hero.thank-you {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero.thank-you .hero-content h1 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.hero.thank-you .hero-content p {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.hero.thank-you .cta-button {
+  margin: 10px;
+  min-width: 220px;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .hero::before {
+    animation: parallaxBreathMobile 25s ease-in-out infinite alternate;
+    background: linear-gradient(rgba(15,30,23,0.85), rgba(15,30,23,0.9)),
+                url('hero-bg.jpg') center center / cover no-repeat fixed;
+  }
+  @keyframes parallaxBreathMobile {
+    from { background-position: center center; }
+    to { background-position: center 5px; }
+  }
+  .hero-content h1 { font-size: 2.1rem; }
+  .hero-content p  { font-size: 1rem; }
+  section { padding: 60px 15px; }
+  .apply-form { padding: 25px; }
+  .trust-grid { gap: 20px; }
+}
+
+@media (min-width:1600px) {
+  .hero-content h1 { font-size: 3.5rem; }
+  .hero-content p  { font-size: 1.3rem; }
+  .apply-form { padding: 60px; }
+}
