@@ -53,36 +53,88 @@
       <h2>Apply for Your Executive Energy Audit</h2>
       <p>Applications are limited each quarter to ensure personalized attention. If you’re ready to elevate your body and mind, complete the form below and schedule your complimentary consultation.</p>
 
-      <form class="fade-in apply-form" action="https://formspree.io/f/yourformid" method="POST">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
+      <form class="fade-in apply-form"
+      id="applyForm"
+      action="https://formspree.io/f/xblpzrkq"
+      method="POST">
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
+  <h2>Apply to Begin Your Wellness Transformation</h2>
+  <p>Complete the short form below — we’ll review your submission and reach out personally within 24 hours.</p>
 
-        <label for="profession">Profession / Role</label>
-        <input type="text" id="profession" name="profession">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" placeholder="John Doe" required>
 
-        <label for="goal">Primary Goal</label>
-        <select id="goal" name="goal" required>
-          <option value="">Select one</option>
-          <option value="energy">Rebuild Energy & Vitality</option>
-          <option value="stress">Reduce Stress & Burnout</option>
-          <option value="strength">Increase Strength & Mobility</option>
-          <option value="composition">Improve Body Composition</option>
-        </select>
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="email" placeholder="john@company.com" required>
 
-        <label for="message">Tell us about your current challenges or goals</label>
-        <textarea id="message" name="message" rows="5"></textarea>
+  <label for="occupation">Profession / Role</label>
+  <input type="text" id="occupation" name="occupation" placeholder="Founder, Executive, Consultant, etc." required>
 
-        <label for="commitment">Are you ready to invest in your health at a high level?</label>
-        <select id="commitment" name="commitment" required>
-          <option value="yes">Yes</option>
-          <option value="no">Not yet</option>
-        </select>
+  <label for="goals">What are your current health or performance goals?</label>
+  <textarea id="goals" name="goals" rows="5" placeholder="Example: Increase energy, lose 15 lbs, reduce stress, improve focus..." required></textarea>
 
-        <button type="submit">Submit Application</button>
-      </form>
+  <label for="challenges">What has been your biggest obstacle in achieving them?</label>
+  <textarea id="challenges" name="challenges" rows="4" placeholder="Example: Time, consistency, travel schedule, etc." required></textarea>
+
+  <label for="commitment">How ready are you to invest in your transformation?</label>
+  <select id="commitment" name="commitment" required>
+    <option value="" disabled selected>Select an option</option>
+    <option value="ready_now">Ready to begin immediately</option>
+    <option value="considering">Considering, want to learn more</option>
+    <option value="not_sure">Not sure yet — exploring options</option>
+  </select>
+
+  <input type="hidden" name="_redirect" value="https://www.wolfwellness.life/thank-you.html">
+
+  <button type="submit">Submit Application</button>
+
+  <!-- Overlay for Sending & Success States -->
+  <div id="formOverlay" class="form-overlay">
+    <div class="overlay-content" id="overlayContent">
+      <span class="sending-text">Sending...</span>
+    </div>
+  </div>
+</form>
+
+<script>
+document.getElementById("applyForm").addEventListener("submit", function(e) {
+  const overlay = document.getElementById("formOverlay");
+  const overlayContent = document.getElementById("overlayContent");
+  overlay.classList.add("visible");
+  overlayContent.innerHTML = '<span class="sending-text">Sending...</span>';
+
+  // Let the form post as usual
+  fetch(this.action, {
+    method: this.method,
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      overlayContent.innerHTML = `
+        <div class="checkmark-container">
+          <div class="checkmark-circle"></div>
+          <div class="checkmark-stem"></div>
+          <div class="checkmark-kick"></div>
+        </div>
+        <p class="success-text">Application Sent</p>
+      `;
+      setTimeout(() => {
+        window.location.href = "https://www.wolfwellness.life/thank-you.html";
+      }, 3500);
+    } else {
+      overlayContent.innerHTML = '<p class="error-text">Something went wrong. Please try again.</p>';
+      setTimeout(() => overlay.classList.remove("visible"), 3000);
+    }
+  }).catch(() => {
+    overlayContent.innerHTML = '<p class="error-text">Network error. Please try again.</p>';
+    setTimeout(() => overlay.classList.remove("visible"), 3000);
+  });
+
+  e.preventDefault();
+});
+</script>
+
+
     </section>
 
     <!-- TRUST SECTION -->
