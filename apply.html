@@ -55,8 +55,9 @@
 
       <form class="fade-in apply-form"
       id="applyForm"
-      action="https://formspree.io/f/xblpzrkq"
-      method="POST">
+      method="POST"
+      onsubmit="handleSubmit(event)">
+
 
   <h2>Apply to Begin Your Wellness Transformation</h2>
   <p>Complete the short form below — we’ll review your submission and reach out personally within 24 hours.</p>
@@ -84,7 +85,6 @@
     <option value="not_sure">Not sure yet — exploring options</option>
   </select>
 
-  <input type="hidden" name="_redirect" value="https://www.wolfwellness.life/thank-you.html">
 
   <button type="submit">Submit Application</button>
 
@@ -184,19 +184,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
 <script>
-// --- Formspree Thank-You Auto Redirect (free plan compatible) ---
-(function() {
-  // Detect if user landed on Formspree default thank-you page
-  if (document.title.includes("Thanks!") || 
-      document.body.innerText.includes("The form was submitted successfully")) {
-    // Redirect to your custom thank-you page
-    window.location.replace("https://www.wolfwellness.life/thank-you.html");
-  }
-})();
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const overlay = document.getElementById("formOverlay");
+  const overlayContent = document.getElementById("overlayContent");
+
+  overlay.classList.add("visible");
+  overlayContent.innerHTML = '<span class="sending-text">Sending...</span>';
+
+  fetch("https://formspree.io/f/xblpzrkq", {
+    method: "POST",
+    body: new FormData(form),
+    headers: { "Accept": "application/json" }
+  })
+  .then(response => {
+    overlayContent.innerHTML = `
+      <div class="checkmark-container">
+        <div class="checkmark-circle"></div>
+        <div class="checkmark-stem"></div>
+        <div class="checkmark-kick"></div>
+      </div>
+      <p class="success-text">Application Sent</p>
+    `;
+    setTimeout(() => {
+      window.location.href = "https://www.wolfwellness.life/thank-you.html";
+    }, 3500);
+  })
+  .catch(() => {
+    overlayContent.innerHTML = '<p class="error-text">Something went wrong. Please try again.</p>';
+    setTimeout(() => overlay.classList.remove("visible"), 3000);
+  });
+}
 </script>
-
-
 
 
 </body>
