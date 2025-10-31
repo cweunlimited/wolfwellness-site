@@ -449,3 +449,26 @@ footer a:hover { text-decoration: underline; }
   from { height: 0; opacity: 0; }
   to { height: 12px; opacity: 1; }
 }
+
+
+
+/* ==============================
+   THANK-YOU PAGE BUTTON SPACING FIX
+   ============================== */
+.thankyou-buttons a,
+.thankyou-buttons button,
+.hero-content .cta-button {
+  display: inline-block;
+  margin: 0.75rem 0.5rem; /* Adds vertical + horizontal breathing room */
+}
+
+@media (max-width: 600px) {
+  .thankyou-buttons a,
+  .thankyou-buttons button,
+  .hero-content .cta-button {
+    display: block;
+    margin: 1rem auto; /* More spacing for mobile */
+    width: 80%;
+    max-width: 300px;
+  }
+}
