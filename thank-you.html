@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | W.O.L.F. Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="apply.css">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Google Tag Manager Placeholder -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+
+  <!-- Meta Pixel Code Placeholder -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1"/></noscript>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="hero">
+    <div class="hero-content fade-in">
+      <h1>Thank You for Your Application</h1>
+      <p>Your submission has been received. Our team will personally review your details within 24 hours.</p>
+      <p>To accelerate your transformation, you may reserve your consultation below.</p>
+      <div style="margin-top: 2rem;">
+        <a href="index.html" class="cta-button" style="margin-right: 15px;">Return to Main Site</a>
+        <a href="#" class="cta-button" style="background-color:#caa65e;">Schedule Your Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="trust-section fade-in">
+    <h3>Your Journey Has Begun</h3>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4>Next Steps</h4>
+        <p>Within one business day, you’ll receive a personalized message confirming your consultation availability. Our executive wellness team will assess your goals to ensure the most tailored experience possible.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Stay Aligned</h4>
+        <p>While you wait, we recommend revisiting our insights section for strategies on energy, focus, and recovery — designed for leaders like you.</p>
+        <a href="insights-high-performers-paradox.html" style="color:#b5985a;text-decoration:none;">Explore Insights →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 W.O.L.F. Wellness — Wellness. Optimized. | <a href="index.html">Return to Main Site</a></p>
+  </footer>
+
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target); // only once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".apply-form, .trust-card").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+
+</body>
+</html>
