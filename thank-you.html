@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
-// Smooth single fade-in timing control (thank-you page) with safety lock
+// Smooth single fade-in timing control (thank-you page) with adaptive mobile cascade
 if (!window.fadeInitDone) {
   window.fadeInitDone = true;
 
@@ -134,11 +134,17 @@ if (!window.fadeInitDone) {
       document.body.classList.add("fade-in-page");
     }
 
+    // detect mobile devices
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const delay = isMobile ? 1400 : 800; // longer delay on mobile for smoother body fade
+
     setTimeout(() => {
-      document.querySelectorAll(".fade-in").forEach(el => {
+      // apply slight stagger for inner fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el, index) => {
+        el.style.transitionDelay = `${index * 120}ms`;
         el.classList.add("visible");
       });
-    }, 800);
+    }, delay);
   });
 }
 </script>

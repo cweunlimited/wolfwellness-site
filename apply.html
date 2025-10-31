@@ -241,25 +241,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
-// Smooth single fade-in timing control with safety lock
+// Smooth single fade-in timing control with adaptive mobile delay
 if (!window.fadeInitDone) {
   window.fadeInitDone = true;
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Apply fade only once
     if (!document.body.classList.contains("fade-in-page")) {
       document.body.classList.add("fade-in-page");
     }
 
-    // Wait until fade-in stabilizes, then reveal fade-in elements
+    // Adjust delay based on device type
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const delay = isMobile ? 1400 : 800; // mobile waits slightly longer
+
     setTimeout(() => {
-      document.querySelectorAll(".fade-in").forEach(el => {
+      document.querySelectorAll(".fade-in").forEach((el, index) => {
+        el.style.transitionDelay = `${index * 120}ms`; // subtle stagger cascade
         el.classList.add("visible");
       });
-    }, 800);
+    }, delay);
   });
 }
 </script>
+</body>
+</html>
+
 
 
 
