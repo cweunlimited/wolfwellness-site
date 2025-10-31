@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You | W.O.L.F. Wellness</title>
+  <!-- Performance & smooth animation optimization -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate" />
+<style>
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+  }
+</style>
+
+<title>Thank You | W.O.L.F. Wellness</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="apply.css">
   <link rel="icon" href="/favicon.ico">
@@ -35,15 +53,17 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header class="hero">
-    <div class="hero-content fade-in">
-      <h1>Thank You for Your Application</h1>
-      <p>Your submission has been received. Our team will personally review your details within 24 hours.</p>
-      <p>To accelerate your transformation, you may reserve your consultation below.</p>
-      <div style="margin-top: 2rem;">
-        <a href="index.html" class="cta-button" style="margin-right: 15px;">Return to Main Site</a>
-        <a href="#" class="cta-button" style="background-color:#caa65e;">Schedule Your Consultation</a>
-      </div>
-    </div>
+    <div class="hero-content fade-in thankyou-container">
+  <h1>Thank You for Your Application</h1>
+  <p>Your submission has been received. Our team will personally review your details within 24 hours.</p>
+  <p>To accelerate your transformation, you may reserve your consultation below.</p>
+
+  <div class="thankyou-buttons" style="margin-top: 2rem;">
+    <a href="index.html" class="cta-button" style="margin-right: 15px;">Return to Main Site</a>
+    <a href="#" class="cta-button" style="background-color:#caa65e;">Schedule Your Consultation</a>
+  </div>
+</div>
+
   </header>
 
   <section class="trust-section fade-in">
@@ -99,6 +119,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+
+
+
+
+<script>
+// Smooth single fade-in timing control (thank-you page) with safety lock
+if (!window.fadeInitDone) {
+  window.fadeInitDone = true;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("fade-in-page")) {
+      document.body.classList.add("fade-in-page");
+    }
+
+    setTimeout(() => {
+      document.querySelectorAll(".fade-in").forEach(el => {
+        el.classList.add("visible");
+      });
+    }, 800);
+  });
+}
+</script>
+
 
 
 </body>

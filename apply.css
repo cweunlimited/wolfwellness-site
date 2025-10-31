@@ -491,3 +491,91 @@ body.fade-in-page {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+
+
+
+/* ===== Thank-you page cinematic fade ===== */
+body.fade-in-page {
+  opacity: 0;
+  animation: fadeInPage 0.8s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+
+
+/* ===== Thank-You Page Cinematic Reveal (staggered) ===== */
+
+/* container fades in first just to avoid flash */
+.thankyou-container {
+  opacity: 1; /* container itself stays visible so layout is stable */
+}
+
+.thankyou-container h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: thankyouFadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.thankyou-container p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: thankyouFadeUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* the button row as a group */
+.thankyou-buttons {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: thankyouFadeUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes thankyouFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+/* ===== Global fade stabilization ===== */
+body {
+  will-change: opacity;
+}
+
+/* Prevent double fade trigger */
+body.fade-in-page .fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+
+
+/* GPU optimization for animated elements */
+.fade-in,
+.hero,
+.trust-card,
+.parallax-bg,
+.checkmark-container {
+  will-change: opacity, transform;
+}
+

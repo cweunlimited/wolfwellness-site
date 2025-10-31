@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply | W.O.L.F. Wellness</title>
+  <!-- Performance & smooth animation optimization -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate" />
+<style>
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+  }
+</style>
+
+
+<title>Apply | W.O.L.F. Wellness</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="apply.css">
   <link rel="icon" href="/favicon.ico" />
@@ -217,6 +236,29 @@ function handleSubmit(e) {
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("fade-in-page");
 });
+</script>
+
+
+
+<script>
+// Smooth single fade-in timing control with safety lock
+if (!window.fadeInitDone) {
+  window.fadeInitDone = true;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Apply fade only once
+    if (!document.body.classList.contains("fade-in-page")) {
+      document.body.classList.add("fade-in-page");
+    }
+
+    // Wait until fade-in stabilizes, then reveal fade-in elements
+    setTimeout(() => {
+      document.querySelectorAll(".fade-in").forEach(el => {
+        el.classList.add("visible");
+      });
+    }, 800);
+  });
+}
 </script>
 
 
