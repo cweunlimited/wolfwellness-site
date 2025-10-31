@@ -472,3 +472,22 @@ footer a:hover { text-decoration: underline; }
     max-width: 300px;
   }
 }
+
+
+
+
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.fade-in-page {
+  opacity: 0;
+  animation: fadeInPage 0.8s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

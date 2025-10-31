@@ -96,24 +96,6 @@
   </div>
 </form>
 
-<script>
-(function() {
-  const form = document.getElementById("applyForm");
-  const overlay = document.getElementById("formOverlay");
-  const overlayContent = document.getElementById("overlayContent");
-
-  form.addEventListener("submit", function() {
-    // always show overlay immediately
-    overlay.classList.add("visible");
-    overlayContent.innerHTML = '<span class="sending-text">Sending...</span>';
-  });
-
-  // optional visual enhancement after redirect return
-  window.addEventListener("pageshow", function(event) {
-    if (event.persisted) overlay.classList.remove("visible");
-  });
-})();
-</script>
 
 
 
@@ -204,24 +186,39 @@ function handleSubmit(e) {
     headers: { "Accept": "application/json" }
   })
   .then(response => {
-    overlayContent.innerHTML = `
-      <div class="checkmark-container">
-        <div class="checkmark-circle"></div>
-        <div class="checkmark-stem"></div>
-        <div class="checkmark-kick"></div>
-      </div>
-      <p class="success-text">Application Sent</p>
-    `;
-    setTimeout(() => {
-      window.location.href = "https://www.wolfwellness.life/thank-you.html";
-    }, 3500);
+    if (response.ok) {
+      overlayContent.innerHTML = `
+        <div class="checkmark-container">
+          <div class="checkmark-circle"></div>
+          <div class="checkmark-stem"></div>
+          <div class="checkmark-kick"></div>
+        </div>
+        <p class="success-text">Application Sent</p>
+      `;
+
+      // Cinematic fade-out + redirect
+      setTimeout(() => {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = "https://www.wolfwellness.life/thank-you.html";
+        }, 600);
+      }, 3500);
+    } else {
+      throw new Error("Network issue");
+    }
   })
   .catch(() => {
     overlayContent.innerHTML = '<p class="error-text">Something went wrong. Please try again.</p>';
     setTimeout(() => overlay.classList.remove("visible"), 3000);
   });
 }
+
+// Add fade-in on load for continuity
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("fade-in-page");
+});
 </script>
+
 
 
 </body>
