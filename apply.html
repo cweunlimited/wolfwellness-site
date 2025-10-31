@@ -183,5 +183,21 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+
+<script>
+// --- Formspree Thank-You Auto Redirect (free plan compatible) ---
+(function() {
+  // Detect if user landed on Formspree default thank-you page
+  if (document.title.includes("Thanks!") || 
+      document.body.innerText.includes("The form was submitted successfully")) {
+    // Redirect to your custom thank-you page
+    window.location.replace("https://www.wolfwellness.life/thank-you.html");
+  }
+})();
+</script>
+
+
+
+
 </body>
 </html>
