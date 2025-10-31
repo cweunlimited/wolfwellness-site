@@ -97,46 +97,24 @@
 </form>
 
 <script>
-document.getElementById("applyForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+(function() {
+  const form = document.getElementById("applyForm");
   const overlay = document.getElementById("formOverlay");
   const overlayContent = document.getElementById("overlayContent");
-  overlay.classList.add("visible");
-  overlayContent.innerHTML = '<span class="sending-text">Sending...</span>';
 
-  // Try the Formspree fetch submission
-  fetch(this.action, {
-    method: this.method,
-    body: new FormData(this),
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      overlayContent.innerHTML = `
-        <div class="checkmark-container">
-          <div class="checkmark-circle"></div>
-          <div class="checkmark-stem"></div>
-          <div class="checkmark-kick"></div>
-        </div>
-        <p class="success-text">Application Sent</p>
-      `;
-      setTimeout(() => {
-        window.location.href = "https://www.wolfwellness.life/thank-you.html";
-      }, 3500);
-    } else {
-      throw new Error("Network issue");
-    }
-  })
-  .catch(() => {
-    // Graceful Android fallback with brief visual continuity
+  form.addEventListener("submit", function() {
+    // always show overlay immediately
+    overlay.classList.add("visible");
     overlayContent.innerHTML = '<span class="sending-text">Sending...</span>';
-    setTimeout(() => {
-      overlay.classList.remove("visible");
-      this.submit(); // fallback to native form submission
-    }, 1000);
   });
-});
+
+  // optional visual enhancement after redirect return
+  window.addEventListener("pageshow", function(event) {
+    if (event.persisted) overlay.classList.remove("visible");
+  });
+})();
 </script>
+
 
 
 
