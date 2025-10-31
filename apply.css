@@ -593,3 +593,10 @@ body.fade-in-page .fade-in {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+.hero h1,
+.hero p,
+.hero .hero-buttons {
+  will-change: opacity, transform;
+}
