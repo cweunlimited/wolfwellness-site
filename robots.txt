@@ -1,19 +1,24 @@
-# W.O.L.F. Wellness - Robots.txt
-# Purpose: Control how search engines and AI crawlers index your site
-# Location: https://wolfwellness.life/robots.txt
+# ==========================================
+# 🐺 W.O.L.F. Wellness Robots.txt
+# Purpose: Control search engine and AI crawler access
+# Website: https://wolfwellness.life
+# Updated: 2025-11-01
+# ==========================================
 
+# --- Sitemap ---
+Sitemap: https://wolfwellness.life/sitemap.xml
+
+# --- General Crawler Rules ---
 User-agent: *
+Crawl-delay: 10
 Allow: /
-
-# Disallow internal or duplicate pages (if you ever add login/admin areas)
+Disallow: /apply.html   # Exclude ad landing page
+Disallow: /thank-you.html
 Disallow: /private/
 Disallow: /temp/
 Disallow: /drafts/
 
-# Sitemap reference (helps Google, Bing, and AI models find your articles faster)
-Sitemap: https://wolfwellness.life/sitemap.xml
-
-# Allow AI crawlers (OpenAI, Anthropic, Perplexity)
+# --- AI & Research Crawlers (Allowed) ---
 User-agent: GPTBot
 Allow: /
 
@@ -22,3 +27,18 @@ Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+
+# --- Other Good Bots (Optional for Clarity) ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# --- Notes ---
+# Crawl-delay is respected by Bing, Yandex, and others.
+# Google ignores crawl-delay but adjusts crawl rate automatically.
+# Sitemap provides clear indexing structure for your sections.
