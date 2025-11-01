@@ -1544,3 +1544,181 @@ html {
 
 
 
+/* Founder / Meet the Founder section */
+.founder {
+  background-color: #24513A;
+  color: #f5f0e1;
+  padding: 90px 20px;
+}
+
+.founder-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Soft gold line above and below to frame the founder section */
+.founder::before,
+.founder::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 80%;
+  max-width: 900px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(212,175,55,0.8),
+    rgba(245,215,123,0.6),
+    rgba(212,175,55,0.8)
+  );
+  box-shadow: 0 0 6px rgba(212,175,55,0.4);
+  transform: translateX(-50%);
+}
+
+.founder::before {
+  top: 0;
+}
+
+.founder::after {
+  bottom: 0;
+}
+
+.founder-photo-wrapper {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.founder-photo {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.founder-text {
+  flex: 1 1 400px;
+  max-width: 550px;
+  text-align: left;
+}
+
+.founder-text h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.founder-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #f5f0e1;
+  margin: 0;
+}
+
+/* Mobile / tablet layout: stack vertically and center */
+@media (max-width: 768px) {
+  .founder-inner {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .founder-photo {
+    width: 220px;
+    height: 220px;
+  }
+
+  .founder-text {
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .founder-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .founder-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* tighten the gold lines a bit on small screens */
+  .founder::before,
+  .founder::after {
+    width: 88%;
+  }
+}
+
+
+
+
+
+.founder-signature {
+  font-family: 'Great Vibes', cursive;
+  color: #d4af37 !important;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  margin-top: 15px;
+  text-align: center;
+  display: block;
+  position: relative;
+  background: linear-gradient(90deg, rgba(212,175,55,0.4) 0%, #f5d77b 50%, rgba(212,175,55,0.4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldSweep 15s linear infinite;
+}
+
+@keyframes goldSweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+
+
+
+
+.founder-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-signature {
+  font-family: 'Great Vibes', cursive;
+  color: #d4af37 !important;
+  font-size: 1.8rem;
+  margin-top: 15px;
+  text-align: center;
+  display: block;
+  background: linear-gradient(90deg, rgba(212,175,55,0.4) 0%, #f5d77b 50%, rgba(212,175,55,0.4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldSweep 15s linear infinite;
+}
+
+@keyframes goldSweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
