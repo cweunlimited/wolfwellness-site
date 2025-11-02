@@ -1,3 +1,9 @@
+:root {
+  --gold-color: #d4af37; /* Classic luxury gold tone */
+}
+
+
+
 /* Import Elegant Font */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap');
 
@@ -1625,6 +1631,14 @@ html {
   margin: 0;
 }
 
+
+
+
+
+
+
+
+
 /* Mobile / tablet layout: stack vertically and center */
 @media (max-width: 768px) {
   .founder-inner {
@@ -1721,4 +1735,105 @@ html {
     background-position: -200% center;
   }
 }
+
+
+
+
+/* Founder Image — final balanced version */
+.founder-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* ensures border stays visible */
+}
+
+.founder-image img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 3px solid var(--gold-color);
+  object-fit: cover;
+  object-position: center 30%; /* your chosen crop position */
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #0c3b2e; /* same as your page background */
+  z-index: 2;
+}
+
+
+
+
+}
+
+.founder-image img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 3px solid var(--gold-color);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  margin: 0 auto;
+  background-color: #0c3b2e;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+
+.founder-image img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(212, 175, 55, 0.3);
+  pointer-events: none;
+}
+
+
+
+/* Refined Luxury Gold Glow Animation with Hover Interaction */
+.founder-image img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 3px solid var(--gold-color);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  margin: 0 auto;
+  background-color: #0c3b2e;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  transition: box-shadow 0.8s ease, transform 0.6s ease;
+  animation: goldPulse 12s ease-in-out infinite alternate;
+}
+
+/* Smooth, subtle pulse that evokes calm energy */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(212, 175, 55, 0.45),
+      0 0 18px rgba(245, 215, 123, 0.25);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(212, 175, 55, 0.7),
+      0 0 45px rgba(245, 215, 123, 0.35);
+  }
+}
+
+/* Hover: slightly amplify the glow and lift the image for luxury interactivity */
+.founder-image img:hover {
+  box-shadow: 
+    0 0 25px rgba(212, 175, 55, 0.8),
+    0 0 55px rgba(245, 215, 123, 0.5);
+  transform: translateY(-4px);
+}
+
 
