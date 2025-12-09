@@ -1,0 +1,348 @@
+/* ==============================================
+   FOUNDATION PROGRAM — W.O.L.F. WELLNESS
+   Author: ChatGPT
+   Description: Styles for the $99 Foundation Program landing page
+   ============================================== */
+
+/* ----------- BASE SETTINGS ----------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #0b3d2e; /* Deep green background */
+  color: #f0f0f0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Shared heading font */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: #f9f9f9;
+  letter-spacing: 0.5px;
+}
+
+/* Accent color — soft gold */
+:root {
+  --accent-color: #b5985a;
+  --accent-color-light: #d4b97a;
+  --bg-dark: #0b3d2e;
+  --bg-darker: #08271f;
+  --text-light: #f2f2f2;
+}
+
+/* ----------- HERO SECTION ----------- */
+.hero {
+  background: url("hero-bg.jpg") no-repeat center center/cover;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 20px;
+}
+
+.hero img {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA button */
+.cta-button {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent-color-light);
+  transform: scale(1.05);
+}
+
+/* ----------- SECTION STYLING ----------- */
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section h2 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+section p {
+  color: #e6e6e6;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+/* ----------- TRUST GRID / FEATURE CARDS ----------- */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.trust-card {
+  background-color: var(--bg-darker);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.trust-card h4 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+/* ----------- VALUE TABLE ----------- */
+.value-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background-color: var(--bg-darker);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.value-table th,
+.value-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px;
+  text-align: left;
+}
+
+.value-table th {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.value-table td:last-child {
+  text-align: right;
+}
+
+/* ----------- FORM SECTION ----------- */
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--bg-darker);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.apply-form label {
+  text-align: left;
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.apply-form input,
+.apply-form textarea,
+.apply-form select {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  width: 100%;
+  resize: vertical;
+  transition: background 0.2s ease;
+}
+
+.apply-form input:focus,
+.apply-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: 1px solid var(--accent-color);
+}
+
+.apply-form button {
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-form button:hover {
+  background-color: var(--accent-color-light);
+  transform: scale(1.03);
+}
+
+/* Overlay success and sending animation */
+.form-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-overlay.visible {
+  display: flex;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Success checkmark */
+.checkmark-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px auto;
+}
+.checkmark-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.checkmark-stem {
+  width: 4px;
+  height: 24px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 28px;
+  top: 14px;
+  transform: rotate(45deg);
+}
+.checkmark-kick {
+  width: 12px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
+/* ----------- FOOTER ----------- */
+footer {
+  background-color: #061f18;
+  text-align: center;
+  padding: 30px;
+  color: #ccc;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ----------- ANIMATIONS ----------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh;
+    background-position: center top;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  section {
+    padding: 60px 15px;
+  }
+
+  .apply-form {
+    padding: 25px;
+  }
+}

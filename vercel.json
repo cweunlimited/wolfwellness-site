@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/reset",
+      "destination": "https://cweunlimited.gumroad.com/l/executivereset",
+      "permanent": false
+    }
+  ]
+}
