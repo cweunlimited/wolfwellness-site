@@ -35,17 +35,19 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
     }
     html,body{height:100%;}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,.10), transparent 55%),
-                  radial-gradient(900px 600px at 80% 30%, rgba(0,0,0,.25), transparent 55%),
-                  var(--bg);
-      color:var(--off);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px 16px;
-    }
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,.10), transparent 55%),
+              radial-gradient(900px 600px at 80% 30%, rgba(0,0,0,.25), transparent 55%),
+              var(--bg);
+  color:var(--off);
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:24px 14px;
+}
+
     .wrap{
       width:min(920px, 100%);
       display:grid;
@@ -142,6 +144,35 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       letter-spacing:.06em;
       text-transform: uppercase;
     }
+
+@media (max-width: 600px){
+  body{
+    padding-top:16px;
+  }
+
+  .wrap{
+    width:100%;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  h1{
+    font-size:28px;
+    line-height:1.1;
+  }
+
+  .sub{
+    font-size:15px;
+  }
+
+  .btn{
+    width:100%;
+    justify-content:center;
+  }
+}
+
   </style>
 </head>
 
