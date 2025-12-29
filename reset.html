@@ -195,13 +195,32 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       </ul>
 
       <div class="cta">
-        <a class="btn"
-           href="https://christopherestevez.gumroad.com/l/executivereset"
-           onclick="fbq('track', 'AddToCart', {content_name:'7-Day Executive Reset', value:49.00, currency:'USD'});">
-          Start the Reset
-          <span aria-hidden="true">→</span>
-        </a>
-        <div class="note">Instant download. Start today.</div>
+        <a class="btn" href="#" id="buyBtn">
+  Start the Reset <span aria-hidden="true">→</span>
+</a>
+<div class="note">Instant download. Start today.</div>
+
+<script>
+  document.getElementById("buyBtn").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    // Optional: Meta Pixel event
+    if (window.fbq) {
+      fbq("track", "InitiateCheckout", {
+        content_name: "7-Day Executive Reset",
+        value: 49.00,
+        currency: "USD"
+      });
+    }
+
+    const res = await fetch("/api/create-checkout-session", { method: "POST" });
+    const data = await res.json();
+
+    if (data.url) window.location.href = data.url;
+    else alert("Checkout error: " + (data.error || "Unknown error"));
+  });
+</script>
+
       </div>
 
       <div class="who">
