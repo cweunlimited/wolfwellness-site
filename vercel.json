@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/reset",
-      "destination": "https://christopherestevez.gumroad.com/l/executivereset",
-      "permanent": false
-    }
-  ]
-}
