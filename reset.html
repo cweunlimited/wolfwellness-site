@@ -195,13 +195,16 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       </ul>
 
       <div class="cta">
-        <a class="btn" href="#" id="buyBtn">
-  Start the Reset <span aria-hidden="true">→</span>
-</a>
-<div class="note">Instant download. Start today.</div>
+  <a class="btn" href="#" id="buyBtn">
+    Start the Reset <span aria-hidden="true">→</span>
+  </a>
+  <div class="note">Instant download. Start today.</div>
+</div>
 
 <script>
-  document.getElementById("buyBtn").addEventListener("click", async (e) => {
+  const buyBtn = document.getElementById("buyBtn");
+
+  buyBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
     // Optional: Meta Pixel event
@@ -213,15 +216,49 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       });
     }
 
-    const res = await fetch("/api/create-checkout-session", { method: "POST" });
-    const data = await res.json();
+    // Give immediate feedback so it doesn't feel dead
+    const originalHtml = buyBtn.innerHTML;
+    buyBtn.style.pointerEvents = "none";
+    buyBtn.style.opacity = "0.85";
+    buyBtn.innerHTML = "Redirecting…";
 
-    if (data.url) window.location.href = data.url;
-    else alert("Checkout error: " + (data.error || "Unknown error"));
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      // If the API route is missing or failing, you'll see it now
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Checkout API error (${res.status}): ${text || "No response body"}`);
+      }
+
+      const data = await res.json();
+
+      if (data && data.url) {
+        window.location.href = data.url;
+        return;
+      }
+
+      throw new Error("Checkout API returned no URL. Expected JSON: { url: 'https://...' }");
+    } catch (err) {
+      console.error(err);
+      alert(
+        "Checkout failed.\n\n" +
+        "This usually means your Vercel /api/create-checkout-session endpoint is missing or misconfigured.\n\n" +
+        "Error:\n" + (err?.message || err)
+      );
+    } finally {
+      // Restore button state if we didn't redirect
+      buyBtn.style.pointerEvents = "auto";
+      buyBtn.style.opacity = "1";
+      buyBtn.innerHTML = originalHtml;
+    }
   });
 </script>
 
-      </div>
+
 
       <div class="who">
         If your days feel scattered, your energy unstable, or your mind overloaded, this gives you structure fast.
