@@ -2,36 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Download Ready | 7-Day Executive Reset</title>
-  <meta name="description" content="Your purchase is complete. Download your 7-Day Executive Reset instantly." />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Success | 7-Day Executive Reset</title>
+  <meta name="description" content="Payment successful. Download your 7-Day Executive Reset PDF." />
 
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];
-  t=b.createElement(e);t.async=!0;
-  t.src=v;
-  s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}
-  (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1542150893596407');
   fbq('track', 'PageView');
-
-  // Fire a "Purchase" event on success page load (best available signal you control)
-  // NOTE: Value/currency should match Stripe price. Update value if your price changes.
-  fbq('track', 'Purchase', { value: 49.00, currency: 'USD' });
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"/>
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
+  /></noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
@@ -54,25 +44,29 @@
         radial-gradient(900px 600px at 80% 30%, rgba(0,0,0,.25), transparent 55%),
         var(--bg);
       color:var(--off);
+      min-height:100svh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:28px 16px;
+
+      /* Mobile safe padding (incl. iPhone notch) */
+      padding: max(18px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+               max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
     }
 
     .wrap{
-      width:min(860px, 100%);
-      display:grid;
-      gap:14px;
+      width:min(920px, 100%);
     }
 
     .card{
+      width:100%;
       background: var(--card);
       border: 1px solid rgba(255,255,255,.06);
       border-radius: 18px;
-      padding: 22px;
+      padding: clamp(16px, 3.2vw, 26px);
       backdrop-filter: blur(10px);
       box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      overflow:hidden; /* prevent weird mobile overflow */
     }
 
     .kicker{
@@ -86,24 +80,27 @@
 
     h1{
       margin: 0 0 10px 0;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.06;
-      letter-spacing: .02em;
+      font-size: clamp(26px, 5.5vw, 46px);
+      line-height: 1.08;
+      letter-spacing: .01em;
+      word-break: normal;
+      overflow-wrap: anywhere; /* prevents edge cut-off on small screens */
     }
 
     .sub{
       margin: 0 0 18px 0;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: clamp(14px, 2.6vw, 16px);
+      line-height: 1.6;
+      max-width: 62ch;
     }
 
-    .btnrow{
+    .cta{
       display:flex;
       gap:12px;
       align-items:center;
-      flex-wrap: wrap;
-      margin-top: 10px;
+      flex-wrap:wrap; /* allows stacking */
+      margin: 12px 0 16px 0;
     }
 
     .btn{
@@ -118,42 +115,70 @@
       text-decoration:none;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       cursor:pointer;
       transition: transform .12s ease, background .12s ease;
+      white-space: nowrap;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: linear-gradient(180deg, rgba(212,175,55,.24), rgba(212,175,55,.10));
-    }
+    .btn:hover{transform: translateY(-1px); background: linear-gradient(180deg, rgba(212,175,55,.24), rgba(212,175,55,.10));}
 
     .btn.secondary{
-      background: rgba(0,0,0,.18);
+      background: rgba(0,0,0,.10);
       border: 1px solid rgba(255,255,255,.10);
       font-weight: 700;
     }
 
     .note{
+      width:100%;
       font-size: 13px;
       color: rgba(244,241,232,.70);
-      line-height: 1.5;
-      margin-top: 14px;
+      margin-top: 4px;
     }
 
     .divider{
       height:1px;
       background: rgba(255,255,255,.08);
-      margin: 14px 0;
+      margin: 18px 0;
     }
 
-    code{
-      display:inline-block;
-      background: rgba(0,0,0,.22);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 2px 8px;
-      border-radius: 10px;
-      color: rgba(244,241,232,.85);
+    .label{
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
       font-size: 12px;
+      margin: 0 0 8px 0;
+    }
+
+    .p{
+      margin: 0 0 10px 0;
+      color: rgba(244,241,232,.82);
+      line-height: 1.6;
+      font-size: clamp(14px, 2.6vw, 15px);
+      max-width: 68ch;
+    }
+
+    .code{
+      display:block;
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+      color: rgba(244,241,232,.80);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      overflow:auto;
+      white-space: nowrap;
+    }
+
+    /* Mobile: make buttons full-width and stack cleanly */
+    @media (max-width: 520px){
+      .btn{
+        width:100%;
+        justify-content:center;
+      }
     }
   </style>
 </head>
@@ -162,50 +187,54 @@
   <main class="wrap">
     <section class="card">
       <div class="kicker">W.O.L.F. Wellness</div>
+
       <h1>You're in. Download your Reset.</h1>
       <p class="sub">
         Your payment was successful. Use the button below to download the <strong>7-Day Executive Reset</strong> instantly.
       </p>
 
-      <div class="btnrow">
-        <!-- YOUR GOOGLE DRIVE LINK -->
-        <a class="btn" id="downloadBtn"
-           href="https://drive.google.com/uc?export=download&id=103OyWZg1hjKVqykal-rA8tD3i75bjFDC"
-           target="_blank" rel="noopener">
+      <div class="cta">
+        <!-- Replace DOWNLOAD_URL with your Google Drive direct link (or current share link) -->
+        <a class="btn" id="downloadBtn" href="https://drive.google.com/uc?export=download&id=103OyWZg1hjKVqykal-rA8tD3i75bjFDC" target="_blank" rel="noopener">
           Download PDF <span aria-hidden="true">→</span>
         </a>
 
         <a class="btn secondary" href="/reset.html">
           Back to Reset Page
         </a>
+
+        <div class="note">
+          If the download opens in Google Drive preview, tap the download icon in the top-right.
+        </div>
       </div>
 
       <div class="divider"></div>
 
-      <p class="note">
-        <strong>Important:</strong> Bookmark this page for easy access today. If the download opens in Google Drive preview,
-        tap the download icon (⬇️) in the top-right.
+      <div class="label">Important</div>
+      <p class="p">
+        Bookmark this page for easy access today. If you have any trouble downloading, email
+        <strong>support@wolfwellness.life</strong> and include the checkout reference below.
       </p>
 
-      <p class="note">
-        If you have any trouble downloading, email support and include your Stripe receipt email address.
-      </p>
-
-      <p class="note" id="sessionNote" style="display:none;">
-        Checkout reference: <code id="sessionId"></code>
-      </p>
+      <div class="label">Checkout reference</div>
+      <code class="code" id="refBox">Loading…</code>
     </section>
   </main>
 
   <script>
-    // Optional: display Stripe Checkout session id on page (helps with support + disputes)
-    // Stripe success URL should be set like:
-    // https://wolfwellness.life/success.html?session_id={CHECKOUT_SESSION_ID}
+    // Pull Stripe session_id from URL (?session_id=cs_...)
     const params = new URLSearchParams(window.location.search);
-    const sid = params.get('session_id');
-    if (sid) {
-      document.getElementById('sessionNote').style.display = 'block';
-      document.getElementById('sessionId').textContent = sid;
+    const sessionId = params.get("session_id") || "(not found)";
+    document.getElementById("refBox").textContent = sessionId;
+
+    // Track Purchase (client-side) - optional but useful for Meta optimization
+    // In a perfect world you'd also send server-side CAPI, but this is still helpful.
+    if (window.fbq) {
+      fbq("track", "Purchase", {
+        content_name: "7-Day Executive Reset",
+        value: 49.00,
+        currency: "USD"
+      });
     }
   </script>
 </body>
