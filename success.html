@@ -48,15 +48,11 @@
       display:flex;
       align-items:center;
       justify-content:center;
-
-      /* Mobile safe padding (incl. iPhone notch) */
       padding: max(18px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
                max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
     }
 
-    .wrap{
-      width:min(920px, 100%);
-    }
+    .wrap{ width:min(920px, 100%); }
 
     .card{
       width:100%;
@@ -66,7 +62,7 @@
       padding: clamp(16px, 3.2vw, 26px);
       backdrop-filter: blur(10px);
       box-shadow: 0 18px 50px rgba(0,0,0,.25);
-      overflow:hidden; /* prevent weird mobile overflow */
+      overflow:hidden;
     }
 
     .kicker{
@@ -83,8 +79,7 @@
       font-size: clamp(26px, 5.5vw, 46px);
       line-height: 1.08;
       letter-spacing: .01em;
-      word-break: normal;
-      overflow-wrap: anywhere; /* prevents edge cut-off on small screens */
+      overflow-wrap: anywhere;
     }
 
     .sub{
@@ -99,7 +94,7 @@
       display:flex;
       gap:12px;
       align-items:center;
-      flex-wrap:wrap; /* allows stacking */
+      flex-wrap:wrap;
       margin: 12px 0 16px 0;
     }
 
@@ -173,12 +168,8 @@
       white-space: nowrap;
     }
 
-    /* Mobile: make buttons full-width and stack cleanly */
     @media (max-width: 520px){
-      .btn{
-        width:100%;
-        justify-content:center;
-      }
+      .btn{ width:100%; justify-content:center; }
     }
   </style>
 </head>
@@ -194,7 +185,6 @@
       </p>
 
       <div class="cta">
-        <!-- Replace DOWNLOAD_URL with your Google Drive direct link (or current share link) -->
         <a class="btn" id="downloadBtn" href="https://drive.google.com/uc?export=download&id=103OyWZg1hjKVqykal-rA8tD3i75bjFDC" target="_blank" rel="noopener">
           Download PDF <span aria-hidden="true">→</span>
         </a>
@@ -222,20 +212,50 @@
   </main>
 
   <script>
-    // Pull Stripe session_id from URL (?session_id=cs_...)
-    const params = new URLSearchParams(window.location.search);
-    const sessionId = params.get("session_id") || "(not found)";
-    document.getElementById("refBox").textContent = sessionId;
+    (function () {
+      // ---- 1) Grab Stripe session_id from URL ----
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id"); // expects "cs_..."
+      const refBox = document.getElementById("refBox");
 
-    // Track Purchase (client-side) - optional but useful for Meta optimization
-    // In a perfect world you'd also send server-side CAPI, but this is still helpful.
-    if (window.fbq) {
-      fbq("track", "Purchase", {
-        content_name: "7-Day Executive Reset",
-        value: 49.00,
-        currency: "USD"
-      });
-    }
+      // Show something useful in the UI
+      refBox.textContent = sessionId || "(not found)";
+
+      // ---- 2) session_id gate: ONLY track Purchase if sessionId exists and looks like Stripe Checkout ----
+      const isValidStripeSession = typeof sessionId === "string" && sessionId.startsWith("cs_");
+      if (!isValidStripeSession) return;
+
+      // ---- 3) storage lock: prevent duplicate fires for the same sessionId ----
+      // localStorage is the simplest/strongest client-side lock.
+      // If localStorage fails (rare), we fallback to sessionStorage.
+      const lockKey = "meta_purchase_fired_" + sessionId;
+
+      const storage =
+        (function () {
+          try { localStorage.setItem("__t", "1"); localStorage.removeItem("__t"); return localStorage; } catch (e) {}
+          try { sessionStorage.setItem("__t", "1"); sessionStorage.removeItem("__t"); return sessionStorage; } catch (e) {}
+          return null;
+        })();
+
+      // If we have storage and lock exists, don't fire again
+      if (storage && storage.getItem(lockKey) === "1") return;
+
+      // ---- 4) eventID: use sessionId as event_id (works well for dedup later w/ CAPI) ----
+      const eventId = sessionId;
+
+      // Mark lock BEFORE calling fbq to reduce race conditions on quick reloads
+      if (storage) storage.setItem(lockKey, "1");
+
+      // ---- Fire Purchase ----
+      if (window.fbq) {
+        fbq("track", "Purchase", {
+          content_name: "7-Day Executive Reset",
+          value: 49.00,
+          currency: "USD",
+          eventID: eventId
+        });
+      }
+    })();
   </script>
 </body>
 </html>
