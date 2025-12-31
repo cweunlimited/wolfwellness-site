@@ -213,47 +213,47 @@
 
   <script>
     (function () {
-      // ---- 1) Grab Stripe session_id from URL ----
+      // 1) Grab Stripe session_id from URL (?session_id=cs_...)
       const params = new URLSearchParams(window.location.search);
       const sessionId = params.get("session_id"); // expects "cs_..."
       const refBox = document.getElementById("refBox");
-
-      // Show something useful in the UI
       refBox.textContent = sessionId || "(not found)";
 
-      // ---- 2) session_id gate: ONLY track Purchase if sessionId exists and looks like Stripe Checkout ----
+      // 2) Gate: only track Purchase if sessionId exists and looks like a Stripe Checkout session
       const isValidStripeSession = typeof sessionId === "string" && sessionId.startsWith("cs_");
       if (!isValidStripeSession) return;
 
-      // ---- 3) storage lock: prevent duplicate fires for the same sessionId ----
-      // localStorage is the simplest/strongest client-side lock.
-      // If localStorage fails (rare), we fallback to sessionStorage.
+      // 3) Storage lock: prevent duplicate fires for the same sessionId
       const lockKey = "meta_purchase_fired_" + sessionId;
 
-      const storage =
-        (function () {
-          try { localStorage.setItem("__t", "1"); localStorage.removeItem("__t"); return localStorage; } catch (e) {}
-          try { sessionStorage.setItem("__t", "1"); sessionStorage.removeItem("__t"); return sessionStorage; } catch (e) {}
-          return null;
-        })();
+      const storage = (function () {
+        try { localStorage.setItem("__t", "1"); localStorage.removeItem("__t"); return localStorage; } catch (e) {}
+        try { sessionStorage.setItem("__t", "1"); sessionStorage.removeItem("__t"); return sessionStorage; } catch (e) {}
+        return null;
+      })();
 
-      // If we have storage and lock exists, don't fire again
       if (storage && storage.getItem(lockKey) === "1") return;
 
-      // ---- 4) eventID: use sessionId as event_id (works well for dedup later w/ CAPI) ----
+      // 4) eventID: use sessionId as a stable unique id (also enables dedup later if you add CAPI)
       const eventId = sessionId;
 
-      // Mark lock BEFORE calling fbq to reduce race conditions on quick reloads
+      // Lock BEFORE tracking to reduce quick-refresh double fires
       if (storage) storage.setItem(lockKey, "1");
 
-      // ---- Fire Purchase ----
+      // Fire Purchase with correct eventID placement (4th argument!)
       if (window.fbq) {
-        fbq("track", "Purchase", {
-          content_name: "7-Day Executive Reset",
-          value: 49.00,
-          currency: "USD",
-          eventID: eventId
-        });
+        fbq(
+          "track",
+          "Purchase",
+          {
+            content_name: "7-Day Executive Reset",
+            value: 49.00,
+            currency: "USD"
+          },
+          {
+            eventID: eventId
+          }
+        );
       }
     })();
   </script>
