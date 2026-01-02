@@ -35,7 +35,7 @@ async function sendMetaCapiPurchase({ session, req, stripeEvent }) {
   }
 
   // Stripe amounts are usually in cents
-  const value = session.amount_total / 100;
+  const value = typeof session.amount_total === "number" ? session.amount_total / 100 : 0;
   const currency = (session.currency || "usd").toUpperCase();
 
   // Event ID MUST match browser Pixel eventID for dedup
@@ -54,7 +54,7 @@ async function sendMetaCapiPurchase({ session, req, stripeEvent }) {
     data: [
       {
         event_name: "Purchase",
-        event_time: stripeEvent.created,
+        event_time: stripeEvent?.created || Math.floor(Date.now() / 1000),
         action_source: "website",
         event_id: eventId,
         event_source_url: `${process.env.SITE_URL || "https://wolfwellness.life"}/success.html?session_id=${encodeURIComponent(session.id)}`,
