@@ -16,7 +16,7 @@ function normalizeEmail(email) {
   return String(email || "").trim().toLowerCase();
 }
 
-async function sendMetaCapiPurchase({ session, req }) {
+async function sendMetaCapiPurchase({ session, req, stripeEvent }) {
   const pixelId = process.env.META_PIXEL_ID; // e.g. "1542150893596407" (often same as Pixel ID)
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN; // Generate in Events Manager (Conversions API)
   if (!pixelId || !accessToken) {
@@ -54,7 +54,7 @@ async function sendMetaCapiPurchase({ session, req }) {
     data: [
       {
         event_name: "Purchase",
-        event_time: event.created,
+        event_time: stripeEvent.created,
         action_source: "website",
         event_id: eventId,
         event_source_url: `${process.env.SITE_URL || "https://wolfwellness.life"}/success.html?session_id=${encodeURIComponent(session.id)}`,
@@ -133,7 +133,7 @@ module.exports = async function handler(req, res) {
       }
 
       // 1) Send Meta CAPI Purchase (server-side)
-      await sendMetaCapiPurchase({ session, req });
+      await sendMetaCapiPurchase({ session, req, stripeEvent: event });
 
       // 2) Send the email (your existing logic)
       const email =
