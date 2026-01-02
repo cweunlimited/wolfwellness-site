@@ -10,10 +10,14 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
     res.json({
-      status: session.status,                 // "complete" or "open"
-      payment_status: session.payment_status, // "paid" when successful
-      customer_email: session.customer_details?.email || null
-    });
+    status: session.status,                 // "complete" or "open"
+    payment_status: session.payment_status, // "paid" when successful
+    customer_email: session.customer_details?.email || null,
+
+    // ✅ add these so success.html can use Stripe's real price
+    amount_total: session.amount_total ?? null, // cents
+    currency: session.currency ?? null          // e.g. "usd"
+  });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
