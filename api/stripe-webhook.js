@@ -35,7 +35,7 @@ async function sendMetaCapiPurchase({ session, req }) {
   }
 
   // Stripe amounts are usually in cents
-  const value = typeof session.amount_total === "number" ? session.amount_total / 100 : 49.00;
+  const value = session.amount_total / 100;
   const currency = (session.currency || "usd").toUpperCase();
 
   // Event ID MUST match browser Pixel eventID for dedup
