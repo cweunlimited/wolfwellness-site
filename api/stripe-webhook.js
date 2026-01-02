@@ -54,7 +54,7 @@ async function sendMetaCapiPurchase({ session, req }) {
     data: [
       {
         event_name: "Purchase",
-        event_time: Math.floor(Date.now() / 1000),
+        event_time: event.created,
         action_source: "website",
         event_id: eventId,
         event_source_url: `${process.env.SITE_URL || "https://wolfwellness.life"}/success.html?session_id=${encodeURIComponent(session.id)}`,
