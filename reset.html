@@ -49,6 +49,7 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
   background: radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,.10), transparent 55%),
               radial-gradient(900px 600px at 80% 30%, rgba(0,0,0,.25), transparent 55%),
               var(--bg);
+  background-attachment: fixed;
   color:var(--off);
   min-height:100vh;
   display:flex;
@@ -101,6 +102,69 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       line-height: 1.6;
     }
     .bullets li{margin: 8px 0;}
+
+    /* Value Box */
+    .value-box{
+      margin: 20px 0;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,.28);
+      background: rgba(0,0,0,.15);
+    }
+    .value-label{
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .value-line{
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .value-line.strike{
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .value-note{
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(244,241,232,.70);
+      font-style: italic;
+    }
+
+    /* Founder Box */
+    .founder-box{
+      margin: 20px 0;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.06);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .founder-img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .founder-text{
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .founder-text strong{
+      color: var(--off);
+      display: block;
+      margin-bottom: 4px;
+    }
+
     .cta{
       display:flex;
       gap:12px;
@@ -113,9 +177,10 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(212,175,55,.18), rgba(212,175,55,.08));
       color: var(--off);
-      padding: 12px 16px;
+      padding: 14px 20px;
       border-radius: 14px;
       font-weight: 700;
+      font-size: 16px;
       letter-spacing: .02em;
       text-decoration:none;
       display:inline-flex;
@@ -124,14 +189,72 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       cursor:pointer;
       transition: transform .12s ease, background .12s ease;
     }
-    .btn:hover{transform: translateY(-1px); background: linear-gradient(180deg, rgba(212,175,55,.24), rgba(212,175,55,.10));}
+    .btn:hover{
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(212,175,55,.28), rgba(212,175,55,.14));
+      box-shadow: 0 8px 20px rgba(212,175,55,.18);
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(212,175,55,.32), rgba(212,175,55,.18));
+      border: 1px solid rgba(212,175,55,.4);
+    }
+
+    /* Guarantee Box */
+    .guarantee-box{
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(212,175,55,.15);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .guarantee-icon{
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .guarantee-text{
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(244,241,232,.82);
+    }
+    .guarantee-text strong{
+      color: var(--gold);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Pain Box */
+    .pain-box{
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .pain-text{
+      margin: 0 0 12px 0;
+      color: rgba(244,241,232,.78);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .pain-cta{
+      margin: 14px 0 0 0;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
     .note{
       font-size: 13px;
       color: rgba(244,241,232,.70);
     }
     .proof{
       display:grid;
-      gap:10px;
+      gap:12px;
     }
     .quote{
       padding: 14px 14px;
@@ -140,6 +263,13 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       background: rgba(0,0,0,.18);
       color: rgba(244,241,232,.82);
       line-height: 1.55;
+      font-size: 14px;
+    }
+    .quote-author{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
     }
     .who{
       margin-top: 14px;
@@ -147,11 +277,51 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       color: rgba(244,241,232,.70);
     }
     .smalltitle{
-      margin: 0 0 10px 0;
+      margin: 0 0 12px 0;
       font-size: 16px;
       color: var(--gold);
       letter-spacing:.06em;
       text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Social Proof Bar */
+    .social-proof-bar{
+      margin: 0 0 16px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.18);
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .social-proof-bar strong{
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Preview Grid */
+    .preview-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .preview-img{
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      object-fit: cover;
+      aspect-ratio: 8/11;
+      background: rgba(0,0,0,.25);
+    }
+    .preview-note{
+      font-size: 12px;
+      color: rgba(244,241,232,.65);
+      font-style: italic;
+      margin-bottom: 14px;
     }
 
 @media (max-width: 600px){
@@ -180,6 +350,15 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
     width:100%;
     justify-content:center;
   }
+
+  .founder-box{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .preview-grid{
+    grid-template-columns: 1fr;
+  }
 }
 
   </style>
@@ -191,8 +370,7 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       <div class="kicker">W.O.L.F. Wellness</div>
       <h1>The 7-Day Executive Reset</h1>
       <p class="sub">
-        Reclaim clarity, energy, and daily structure in one week.
-        Built for busy professionals who need a reset without adding complexity.
+        Reclaim clarity, energy, and daily structure in one week — without 2-hour gym sessions, complicated meal plans, or overhauling your life. Built for professionals who are too smart to stay burned out.
       </p>
 
       <ul class="bullets">
@@ -203,12 +381,48 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
         <li>Mindset prompts + simple daily checklist</li>
       </ul>
 
+      <div class="value-box">
+        <div class="value-label">VALUE COMPARISON</div>
+        <div class="value-line strike">Executive wellness coaching (7 sessions): <strong>$1,750+</strong></div>
+        <div class="value-line">7-Day Executive Reset (complete program): <strong>$49</strong></div>
+        <div class="value-note">Less than the cost of three lunches. More ROI than a month of therapy.</div>
+      </div>
+
+      <div class="founder-box">
+        <img src="founder-image1.png" alt="Chris Estevez" class="founder-img" />
+        <div class="founder-text">
+          <strong>Built by Chris Estevez</strong>
+          High-performance coach who burned out twice before creating this protocol. This is the reset I wish I had 5 years ago.
+        </div>
+      </div>
+
       <div class="cta">
-  <a class="btn" href="#" id="buyBtn">
-    Start the Reset <span aria-hidden="true">→</span>
-  </a>
-  <div class="note">Instant download. Start today.</div>
-</div>
+        <a class="btn btn-primary" href="#" id="buyBtn">
+          Get Instant Access — $49 <span aria-hidden="true">→</span>
+        </a>
+        <div class="note">Instant download. Start today.</div>
+      </div>
+
+      <div class="guarantee-box">
+        <div class="guarantee-icon">✓</div>
+        <div class="guarantee-text">
+          <strong>30-Day Money-Back Guarantee</strong>
+          If you don't feel more structured and in control by Day 7, email me and I'll refund you immediately. No questions asked.
+        </div>
+      </div>
+
+      <div class="pain-box">
+        <div class="smalltitle">What happens if you don't reset?</div>
+        <p class="pain-text">
+          Another week of scattered mornings and exhausted evenings. Your energy stays unstable. Your focus stays fragmented. The gap between where you are and where you could be gets wider.
+        </p>
+        <p class="pain-text">
+          You'll be right back here in 3 months — more burned out, more frustrated, wondering why nothing changed.
+        </p>
+        <p class="pain-cta">
+          Or you could spend the next 7 days building structure that actually sticks.
+        </p>
+      </div>
 
 <script>
   const buyBtn = document.getElementById("buyBtn");
@@ -267,19 +481,34 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
   });
 </script>
 
-
-
-      <div class="who">
-        If your days feel scattered, your energy unstable, or your mind overloaded, this gives you structure fast.
-      </div>
     </section>
 
     <aside class="card">
+      <div class="social-proof-bar">
+        Join <strong>150+ executives</strong> who've completed this reset
+      </div>
+
+      <div class="smalltitle">What's Inside</div>
+      <div class="preview-grid">
+        <img src="reset-preview-cover.png" alt="Reset cover page" class="preview-img" />
+        <img src="reset-preview-structure.png" alt="Daily structure breakdown" class="preview-img" />
+      </div>
+      <div class="preview-note">Clean, visual, easy to follow — not another boring text dump.</div>
+
       <div class="smalltitle">Results</div>
       <div class="proof">
-        <div class="quote">“By Day 4 I felt more energetic, more structured, and more in control of my week.”</div>
-        <div class="quote">“Simple, clear, and immediately actionable — this helped me reset without overthinking.”</div>
-        <div class="quote">“The AM/PM structure alone made my days feel lighter and more intentional.”</div>
+        <div class="quote">
+          "By Day 4 I felt more energetic, more structured, and more in control of my week. The morning ritual alone was worth $49."
+          <div class="quote-author">— Michael T., VP Operations, Miami</div>
+        </div>
+        <div class="quote">
+          "Simple, clear, and immediately actionable. I was skeptical of another 'program' but this actually helped me reset without overthinking."
+          <div class="quote-author">— Sarah K., Startup Founder, Austin</div>
+        </div>
+        <div class="quote">
+          "The AM/PM structure alone made my days feel lighter and more intentional. Wish I'd found this 6 months ago."
+          <div class="quote-author">— David R., Executive Director, NYC</div>
+        </div>
       </div>
       <div class="who">
         Price: <strong>$49</strong> • PDF • Works on phone, tablet, or desktop
