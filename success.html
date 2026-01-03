@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHX6E096H9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LHX6E096H9');
-  </script>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Success | 7-Day Executive Reset</title>
@@ -221,48 +212,77 @@
   </main>
 
   <script>
-    (function () {
-      // 1) Grab Stripe session_id from URL (?session_id=cs_...)
-      const params = new URLSearchParams(window.location.search);
-      const sessionId = params.get("session_id"); // expects "cs_..."
-      const refBox = document.getElementById("refBox");
-      refBox.textContent = sessionId || "(not found)";
+  (function () {
+    // 1) Grab Stripe session_id from URL (?session_id=cs_...)
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get("session_id"); // expects "cs_..."
+    const refBox = document.getElementById("refBox");
+    refBox.textContent = sessionId || "(not found)";
 
-      // 2) Gate: only track Purchase if sessionId exists and looks like a Stripe Checkout session
-      const isValidStripeSession = typeof sessionId === "string" && sessionId.startsWith("cs_");
-      if (!isValidStripeSession) return;
+    // 2) Gate: only proceed if sessionId exists and looks like a Stripe Checkout session
+    const isValidStripeSession = typeof sessionId === "string" && sessionId.startsWith("cs_");
+    if (!isValidStripeSession) return;
 
-      // 3) Storage lock: prevent duplicate fires for the same sessionId
-      const lockKey = "meta_purchase_fired_" + sessionId;
+    // 3) Storage lock: prevent duplicate fires for the same sessionId
+    const lockKey = "meta_purchase_fired_" + sessionId;
 
-      const storage = (function () {
-        try { localStorage.setItem("__t", "1"); localStorage.removeItem("__t"); return localStorage; } catch (e) {}
-        try { sessionStorage.setItem("__t", "1"); sessionStorage.removeItem("__t"); return sessionStorage; } catch (e) {}
-        return null;
-      })();
+    const storage = (function () {
+      try { localStorage.setItem("__t", "1"); localStorage.removeItem("__t"); return localStorage; } catch (e) {}
+      try { sessionStorage.setItem("__t", "1"); sessionStorage.removeItem("__t"); return sessionStorage; } catch (e) {}
+      return null;
+    })();
 
-      if (storage && storage.getItem(lockKey) === "1") return;
+    // If already fired for this session, stop
+    if (storage && storage.getItem(lockKey) === "1") return;
 
-      // 4) eventID: use sessionId as a stable unique id (also enables dedup later if you add CAPI)
-      const eventId = sessionId;
+    // 4) eventID: MUST match server event_id for dedup (use the Stripe sessionId)
+    const eventId = sessionId;
 
-      // Lock BEFORE tracking to reduce quick-refresh double fires
-      if (storage) storage.setItem(lockKey, "1");
+    // 5) Fire Purchase ONLY when Stripe confirms paid AND returns real amount/currency
+    (async function firePurchase() {
+      if (!window.fbq) return;
 
-      // Fire Purchase with correct eventID placement (4th argument!)
-      if (window.fbq) {
+      try {
+        const r = await fetch(`/api/session-status?session_id=${encodeURIComponent(sessionId)}`);
+        if (!r.ok) return;
+
+        const s = await r.json();
+
+        // Only fire Purchase when Stripe confirms "paid" + we have amount/currency
+        if (
+          s?.payment_status !== "paid" ||
+          typeof s?.amount_total !== "number" ||
+          !s?.currency
+        ) {
+          return;
+        }
+
+        const value = s.amount_total / 100;
+        const currency = String(s.currency).toUpperCase();
+
+        // IMPORTANT: lock ONLY when we are about to fire a real Purchase
+        if (storage) storage.setItem(lockKey, "1");
+
         fbq(
           "track",
           "Purchase",
           {
-            content_name: "7-Day Executive Reset"
+            content_name: "7-Day Executive Reset",
+            value,
+            currency
           },
           {
             eventID: eventId
           }
         );
+      } catch (e) {
+        // If Stripe lookup fails, do NOT fire a Purchase.
+        // Bad data is worse than missing data.
+        return;
       }
     })();
-  </script>
+  })();
+</script>
+
 </body>
 </html>
