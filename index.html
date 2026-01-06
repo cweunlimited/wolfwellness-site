@@ -196,7 +196,7 @@
   "name": "W.O.L.F. Wellness",
   "image": "https://wolfwellness.life/wolf-hero-preview.png",
   "url": "https://wolfwellness.life",
-  "telephone": "+1-305-301-1555",
+  "telephone": "+1-305-563-9502",
   "priceRange": "$$$",
   "description": "Holistic personal training and executive wellness coaching for professionals in Miami and beyond. Blending fitness, mindset, and lifestyle optimization through personalized virtual and in-person programs.",
   "address": {
@@ -260,12 +260,13 @@
     <img src="WOLF Wellness Logo ChatGPT Image Oct 20, 2025, 06_37_59 PM.png" alt="W.O.L.F. Wellness Logo" class="logo">
     <h1 class="hero-title">W.O.L.F. Wellness</h1>
     <p class="tagline">
-  <span class="gold">W</span>ellness 
-  <span class="gold">O</span>ptimization via 
-  <span class="gold">L</span>ifestyle &amp; 
+  <span class="gold">W</span>ellness
+  <span class="gold">O</span>ptimization via
+  <span class="gold">L</span>ifestyle &amp;
   <span class="gold">F</span>itness
 </p>
-  <a href="#contact" class="btn-scroll">Begin Your Wellness Journey</a>
+  <p class="hero-subhead">High-performing professionals stay sharp, energized, and resilient — without sacrificing your schedule.</p>
+  <a href="#contact" class="btn-scroll">Book Free Consultation</a>
 <div class="hero-divider"></div>
 
   </header>
@@ -345,9 +346,9 @@
 
   <!-- Program Tiers -->
   <div class="service-grid">
-    <!-- Essential Reset -->
+    <!-- Essential Foundation -->
     <div class="service">
-      <h3>Essential Reset — $99/month</h3>
+      <h3>Essential Foundation — $99/month</h3>
       <p>
         Reclaim your rhythm and restore balance with focused fitness and lifestyle guidance.
       </p>
@@ -528,6 +529,7 @@
   <div class="contact-container">
     <h2 class="contact-title">Start Your Transformation</h2>
     <p class="contact-subtitle">Reach out to begin your complimentary consultation with W.O.L.F. Wellness.</p>
+    <p class="contact-alt">Prefer email or phone? Reach us at <a href="mailto:info@wolfwellness.life">info@wolfwellness.life</a> or <a href="tel:+13055639502">305-563-9502</a></p>
 
     <form id="contact-form" action="https://formspree.io/f/xldorlga" method="POST" class="contact-form">
       <!-- Hidden fields for Formspree handling -->
@@ -558,6 +560,11 @@
 <div class="section-divider"></div>
 
 
+  <!-- Sticky Mobile CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="#contact" class="mobile-cta-btn">Book Free Consultation</a>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; <span id="year"></span> W.O.L.F. Wellness. All rights reserved.</p>
@@ -573,7 +580,7 @@
 <script>
   // Re-trigger hero animations on scroll into view
   const hero = document.querySelector('.hero');
-  const heroElements = document.querySelectorAll('.hero .logo, .hero h1, .hero .tagline, .hero .btn-scroll');
+  const heroElements = document.querySelectorAll('.hero .logo, .hero h1, .hero .tagline, .hero .hero-subhead, .hero .btn-scroll');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -735,7 +742,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+  // Show sticky mobile CTA after scrolling past hero
+  const mobileCTA = document.querySelector('.mobile-sticky-cta');
 
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 700) {
+      mobileCTA.classList.add('visible');
+    } else {
+      mobileCTA.classList.remove('visible');
+    }
+  });
+</script>
 
 
 </body>
