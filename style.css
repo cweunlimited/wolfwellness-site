@@ -143,11 +143,10 @@ body {
 
 
 .about {
-  background-color: #24513A;
-  background-image: 
-    url('https://www.transparenttextures.com/patterns/white-wall-3.png');
-  background-blend-mode: overlay;
-  background-size: 300px 300px;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(0, 0, 0, 0.25) 0%, transparent 50%),
+    linear-gradient(135deg, #2a5d44 0%, #24513A 50%, #1e4430 100%);
   color: #f5f0e1;
   padding: 90px 20px;
   text-align: center;
@@ -177,7 +176,10 @@ body {
 
 
 .insights {
-  background-color: #24513A;
+  background:
+    radial-gradient(ellipse at 10% 40%, rgba(212, 175, 55, 0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 60%, rgba(0, 0, 0, 0.28) 0%, transparent 50%),
+    linear-gradient(120deg, #24513A 0%, #1f4633 50%, #1a3a28 100%);
   color: #f5f0e1;
   text-align: center;
   padding: 100px 40px;
@@ -405,7 +407,10 @@ body {
 
 
 .services {
-  background-color: #24513A; /* Deep luxury green */
+  background:
+    radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 15% 80%, rgba(0, 0, 0, 0.3) 0%, transparent 50%),
+    linear-gradient(to right, #2a5d44 0%, #24513A 50%, #1d3f2e 100%);
   color: #f5f0e1;
   text-align: center;
   padding: 100px 40px;
@@ -802,7 +807,10 @@ html {
    Testimonial Carousel (No Images)
    ========================= */
 .testimonials {
-  background-color: #24513A;
+  background:
+    radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.15) 0%, transparent 35%),
+    radial-gradient(circle at 25% 75%, rgba(0, 0, 0, 0.35) 0%, transparent 50%),
+    linear-gradient(45deg, #1e4430 0%, #24513A 50%, #2a5d44 100%);
   color: #f5f0e1;
   text-align: center;
   padding: 100px 30px;
