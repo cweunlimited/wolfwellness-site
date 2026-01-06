@@ -1760,15 +1760,13 @@ html {
   }
 }
 
-/* Desktop only: fixed background attachment disabled */
-/* Causes dramatic zoom on mobile orientation changes - keeping as scroll for all devices */
-/*
-@media (min-width: 769px) {
+/* Desktop only: fixed background attachment for parallax effect */
+/* Using 1025px breakpoint to exclude tablets and ensure only true desktop gets parallax */
+@media (min-width: 1025px) {
   .hero {
     background-attachment: fixed;
   }
 }
-*/
 
 
 
