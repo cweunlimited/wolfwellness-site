@@ -33,7 +33,7 @@ body {
   background-size: cover;
   background-position: center center;   /* ensures center focus */
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;        /* scroll on mobile to prevent orientation zoom */
 }
 
 
@@ -1760,7 +1760,15 @@ html {
   }
 }
 
-
+/* Desktop only: fixed background attachment disabled */
+/* Causes dramatic zoom on mobile orientation changes - keeping as scroll for all devices */
+/*
+@media (min-width: 769px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+*/
 
 
 
