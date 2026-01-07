@@ -13,6 +13,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>W.O.L.F. Wellness | Wellness. Optimized.</title>
+
+  <!-- Preload critical hero background image -->
+  <link rel="preload" as="image" href="hero-bg.webp" type="image/webp">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -257,7 +261,10 @@
 <body>
   <!-- Hero Section -->
   <header class="hero">
-    <img src="WOLF Wellness Logo ChatGPT Image Oct 20, 2025, 06_37_59 PM.png" alt="W.O.L.F. Wellness Logo" class="logo">
+    <picture>
+      <source srcset="wolf-logo.webp" type="image/webp">
+      <img src="wolf-logo.png" alt="W.O.L.F. Wellness Logo" class="logo">
+    </picture>
     <h1 class="hero-title">W.O.L.F. Wellness</h1>
     <p class="tagline">
   <span class="gold">W</span>ellness
@@ -301,7 +308,10 @@
     
     <!-- Founder Image Wrapper -->
     <div class="founder-image">
-      <img src="founder-image1.png" alt="Founder of W.O.L.F. Wellness">
+      <picture>
+        <source srcset="founder-image1.webp" type="image/webp">
+        <img src="founder-image1.png" alt="Founder of W.O.L.F. Wellness" loading="lazy">
+      </picture>
       <p class="founder-signature">Founder & Lead Coach, W.O.L.F. Wellness</p>
     </div>
 

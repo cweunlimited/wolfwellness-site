@@ -29,7 +29,7 @@ body {
   position: relative;
   overflow: visible;
 
-  background-image: url('hero-bg.jpg');
+  background-image: url('hero-bg.webp');
   background-size: cover;
   background-position: center center;   /* ensures center focus */
   background-repeat: no-repeat;
