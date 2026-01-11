@@ -30,6 +30,8 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
+    console.log('ConvertKit API response:', JSON.stringify(data, null, 2));
+
     if (!response.ok) {
       console.error('ConvertKit API error:', data);
       return res.status(response.status).json({
@@ -38,7 +40,9 @@ export default async function handler(req, res) {
       });
     }
 
-    // Success
+    // Success - subscriber should now be on the form
+    console.log('Subscriber added successfully:', data.subscription);
+
     return res.status(200).json({
       success: true,
       message: 'Successfully subscribed',
