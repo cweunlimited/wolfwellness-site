@@ -133,14 +133,22 @@
       margin-right: auto;
     }
 
+    h3{
+      color: var(--gold);
+      font-size: clamp(18px, 4vw, 22px);
+      margin: 32px 0 16px 0;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
     .benefit-list{
       list-style: none;
       padding: 0;
-      margin: 24px 0;
+      margin: 20px 0;
     }
 
     .benefit-list li{
-      padding: 12px 0 12px 32px;
+      padding: 10px 0 10px 32px;
       position: relative;
       color: rgba(244,241,232,.88);
       line-height: 1.6;
@@ -154,6 +162,115 @@
       color: var(--gold);
       font-weight: 700;
       font-size: 18px;
+    }
+
+    .enemy-list{
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .enemy-list li{
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: rgba(244,241,232,.75);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .enemy-list li::before{
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: rgba(212,175,55,.6);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .enemy-section{
+      margin: 32px 0;
+      padding: 24px;
+      background: rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+    }
+
+    .enemy-section p{
+      margin: 12px 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .mechanism-section{
+      margin: 32px 0;
+    }
+
+    .mechanism-box{
+      background: rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .mechanism-box strong{
+      display: block;
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .mechanism-box p{
+      margin: 0;
+      color: rgba(244,241,232,.85);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .testimonial{
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .testimonial-text{
+      color: var(--off);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 12px 0;
+      font-style: italic;
+    }
+
+    .testimonial-author{
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .proof-stat{
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .big-number{
+      display: block;
+      color: var(--gold);
+      font-size: clamp(36px, 8vw, 48px);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label{
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .form-box{
@@ -273,25 +390,24 @@
       line-height: 1.5;
     }
 
-    .social-proof{
-      text-align: center;
-      margin: 20px 0;
-      padding: 16px;
-      background: rgba(212,175,55,.08);
+    .urgency-box{
+      background: rgba(212,175,55,.12);
+      border: 1px solid rgba(212,175,55,.25);
       border-radius: 12px;
-      border: 1px solid rgba(212,175,55,.15);
+      padding: 20px;
+      margin: 24px 0;
+      text-align: center;
     }
 
-    .social-proof-text{
-      color: var(--muted);
-      font-size: 14px;
+    .urgency-box p{
       margin: 0;
+      color: var(--off);
+      font-size: 15px;
       line-height: 1.6;
     }
 
-    .social-proof-stat{
+    .urgency-box strong{
       color: var(--gold);
-      font-weight: 700;
       font-size: 16px;
     }
 
@@ -337,20 +453,76 @@
     <div class="card">
       <div class="kicker">Free Download</div>
 
-      <h1>The Executive Performance Stack</h1>
+      <!-- NEW: Pain-Agitated Headline -->
+      <h1>Why You're Exhausted, Unfocused, and Out of Shape</h1>
 
       <p class="sub">
-        The core daily protocols elite executives use to maintain energy, clarity, and resilience under pressure — without overhauling their entire life.
+        (And it's not because you lack discipline)
       </p>
 
-      <div class="social-proof">
-        <p class="social-proof-text">
-          Join <span class="social-proof-stat">150+ executives</span> who've transformed their mornings, energy, and focus with this exact system.
+      <p class="sub">
+        Your nervous system is stuck in fight-or-flight mode. Here's the 7-minute protocol 150+ executives use to fix it—completely free.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- NEW: Enemy Section -->
+      <div class="enemy-section">
+        <h3>Why Everything Else Has Failed</h3>
+        <p>The wellness industry wants you to believe you need:</p>
+        <ul class="enemy-list">
+          <li>90-minute gym sessions you don't have time for</li>
+          <li>Meal prep Sundays that feel like a second job</li>
+          <li>$5,000 biohacking gadgets</li>
+          <li>Tracking macros like a bodybuilder</li>
+        </ul>
+        <p><strong>All of that complexity is designed to keep you dependent.</strong></p>
+        <p>The truth? The most effective protocols take 6-8 minutes per day. No equipment. No tracking. Just biology that works.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- NEW: Enhanced Social Proof -->
+      <div class="proof-stat">
+        <span class="big-number">150+</span>
+        <span class="stat-label">Executives Trust This System</span>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "I was sleeping 5 hours, dragging through 3pm meetings, and skipping workouts I promised I'd do.
+          The AM Ritual changed everything. I'm sleeping 7+ hours for the first time in 5 years."
+        </p>
+        <p class="testimonial-author">
+          — Sarah M., VP of Sales
         </p>
       </div>
 
       <div class="divider"></div>
 
+      <!-- NEW: Mechanism Explanation -->
+      <div class="mechanism-section">
+        <h3>Why This Works When Everything Else Failed</h3>
+
+        <div class="mechanism-box">
+          <strong>🧬 Your Nervous System Is Stuck</strong>
+          <p>Your body is stuck in survival mode—treating every email, meeting, and deadline like a physical threat. That's why you can't sleep, can't focus, and can't recover.</p>
+        </div>
+
+        <div class="mechanism-box">
+          <strong>🔥 The AM + PM Rituals Reset It</strong>
+          <p>7 minutes of breathwork, posture alignment, and micro-mobility teach your nervous system it's SAFE to downshift. Result? Better sleep. Clearer thinking. Faster recovery.</p>
+        </div>
+
+        <div class="mechanism-box">
+          <strong>⚡ This Is Biology, Not Placebo</strong>
+          <p>Morning light exposure regulates cortisol. Evening rituals improve melatonin production. This isn't motivation. It's science.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- EXISTING: What You Get (Kept as-is, it's good) -->
       <div class="section-title">What You Get (100% Free)</div>
 
       <div class="include-box">
@@ -377,6 +549,15 @@
 
       <div class="divider"></div>
 
+      <!-- NEW: Urgency Box -->
+      <div class="urgency-box">
+        <p>
+          <strong>No complexity. No tracking. No gym required.</strong><br>
+          Just the 7-minute morning protocol and 6-minute evening reset that 150+ executives use to maintain energy, focus, and recovery. Get instant access below.
+        </p>
+      </div>
+
+      <!-- EXISTING: Form (Moved to end, updated CTA button) -->
       <div id="formContainer">
         <form id="optinForm" class="form-box">
           <label class="form-label" for="name">First Name</label>
@@ -399,8 +580,9 @@
             required
           />
 
+          <!-- NEW: Updated CTA Button -->
           <button type="submit" class="btn" id="submitBtn">
-            Send Me The Free Performance Stack <span aria-hidden="true">→</span>
+            Get Instant Access (100% Free) <span aria-hidden="true">→</span>
           </button>
 
           <div class="privacy">
@@ -486,7 +668,7 @@
         console.error('Form submission error:', error);
         alert('Something went wrong. Please try again or email support@wolfwellness.life');
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send Me The Free Performance Stack <span aria-hidden="true">→</span>';
+        submitBtn.innerHTML = 'Get Instant Access (100% Free) <span aria-hidden="true">→</span>';
       }
     });
   </script>
