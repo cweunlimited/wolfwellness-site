@@ -613,6 +613,9 @@ html {
   .form-container {
     padding: 25px;
   }
+  .footer {
+    padding-bottom: 80px; /* Space for sticky CTA button */
+  }
 }
 
 
