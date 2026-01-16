@@ -438,6 +438,107 @@
       color: rgba(245, 240, 225, 0.9);
     }
 
+    /* Testimonials Carousel */
+    .testimonials-section {
+      margin: 40px 0;
+      position: relative;
+      padding: 0 50px;
+    }
+
+    .testimonials-intro {
+      text-align: center;
+      color: rgba(245, 240, 225, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+
+    .testimonial-carousel {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+    }
+
+    .testimonial-carousel .testimonial {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 30px;
+      border-left: 3px solid #d4af37;
+    }
+
+    .testimonial-carousel .testimonial.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .testimonial-carousel blockquote {
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0 0 20px 0;
+      color: #f5f0e1;
+    }
+
+    .testimonial-carousel figcaption {
+      color: #d4af37;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(212, 175, 55, 0.4);
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .carousel-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .carousel-dots .dot.active {
+      background: #d4af37;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -475,6 +576,20 @@
 
       h1 {
         font-size: 1.8rem;
+      }
+
+      .testimonials-section {
+        padding: 0 40px;
+      }
+
+      .testimonial-carousel {
+        min-height: 350px;
+      }
+
+      .carousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
       }
 
       .credentials-grid {
@@ -601,30 +716,129 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Testimonials Carousel -->
+    <section class="testimonials-section">
       <h2 class="section-title">What Clients Say</h2>
+      <p class="testimonials-intro">16 verified reviews from FindYourTrainer.com</p>
 
-      <div class="testimonial">
-        <p class="testimonial-text">
-          "Chris helped me get back to lifting after a shoulder injury I'd been dealing with for years. He knew exactly how to work around it and now I'm stronger than before the injury. Highly recommend."
-        </p>
-        <p class="testimonial-author">— Marcus R., Brickell</p>
+      <div class="testimonial-carousel">
+        <div class="testimonial active">
+          <blockquote>
+            "Chris is beyond outstanding. I am amazed by how much I have learned–and how much my body has changed–in just over 3 months of working out with him twice a week. He is as excellent an educator as he is a trainer, which makes all the difference. I left each session feeling like I was pushed to my limit, but not over it. I looked forward to every workout. Really cannot recommend Chris enough."
+          </blockquote>
+          <figcaption>— Nathan H.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "I started training with Chris 2 months ago and his knowledge in proper movement and lifting technique has really pushed me to the next level. I found myself being able to lift more and do it with no pain in my knees, shoulders and so on. He really changes his workout up to fit the body style, age and fitness level of each individual."
+          </blockquote>
+          <figcaption>— Lester A.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is an amazing trainer! In a total of 6 months, I've managed to lose weight and cut body fat significantly thanks to his dedication and hard work. He is ALWAYS willing to go the extra mile for a client and manages his schedule with his clients as a number one priority. Knowing I have his support (both in and out of the gym) has really given me the motivation to continue this journey!"
+          </blockquote>
+          <figcaption>— Nancy</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is phenomenal - he is knowledgeable, motivating, fun, and most importantly safe. Like Chris, I was also a NASM-certified personal trainer, yet he was able to teach me things I did not know, and further enhance my form on complex exercises. Highly recommend Chris!"
+          </blockquote>
+          <figcaption>— Nathan S.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is nothing less than phenomenal. I started working out with him as my trainer 2 years ago. I was a complete beginner, did not know much and was very weak with no strength or muscle definition. Ever since then I gained size and I now am stronger than most people who have been lifting for longer because of the knowledge and dedication Chris gave me. #1 in Miami hands down."
+          </blockquote>
+          <figcaption>— Drew O.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Not only is Chris a fun and genuinely nice guy but his enthusiasm and commitment to his craft is unmatched. You really do get the feeling that he's doing what he loves and enjoys every minute of it. Very knowledgeable of the workouts he puts you through as he does them himself and always willing to give advice. He's tough when you need that extra push!"
+          </blockquote>
+          <figcaption>— Cristian Z.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Knowledgeable trainer. Compliments the workout with meal plans when requested. TRX workouts have toned up muscles in my body like never before. Very mindful of progress, always kept in touch with me about my routine and ways to follow it. When I was out of town he provided daily workout routines. He keeps me motivated and engaged."
+          </blockquote>
+          <figcaption>— Paula P.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "My overall body took a physical transformation. The routines and program provided by Mr. Estevez were ideal. Specifically made for me and my busy schedule, his direction and holistic approach of being healthy, eating right, and creating good workout habits all around my school/work schedule was really incredible. Highly recommend Mr. Estevez as a personal trainer."
+          </blockquote>
+          <figcaption>— Alexis V.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is awesome! Not only has strength gone up but flexibility has increased. He is a very realistic trainer that is always giving new exercises, explaining target muscles and function while pointing out imbalances. He has even gone on to correct most imbalances. I will definitely continue with him and recommend him to anyone no matter what their goal may be!"
+          </blockquote>
+          <figcaption>— Gabriel D.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Not only is Chris great at what he does, but he is constantly pushing you to do your best in the gym. He's patient and tailors all of his workouts to fit your personal needs! I used to hate going to the gym, but because of Chris I now look forward to my sessions and feel guilty when I miss a day! You won't regret hiring Chris!"
+          </blockquote>
+          <figcaption>— Christina</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "A recommendation on my behalf is not easy to come by given that I have had a few experiences with other trainers end as unsuccessful. Chris has broken the mold. He has managed to motivate me and completely change my lifestyle around. He coordinates routines to target different troubled areas and as a result I have increased my flexibility, muscle definition, energy and my attitude towards healthy options."
+          </blockquote>
+          <figcaption>— Roger P.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "I have been training with Chris for almost two months now, he knows how to motivate me and makes each of my training sessions challenging and not boring. Chris is always positive, has tremendous energy for life, very encouraging, and has exceptional knowledge of his profession. He's focused on helping me achieve my goals and makes every session fun."
+          </blockquote>
+          <figcaption>— Marina</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is an excellent trainer! I've been training with Chris for the past 9 months and it's been a wonderful experience. He tailors your workouts according to your goals/body type and pushes and motivates you when you feel like giving up. He's experienced, knowledgeable, professional, and truly cares about his client's progress. I highly recommend!"
+          </blockquote>
+          <figcaption>— Maribel</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "I decided to gain weight in the right areas and tone my body. In less than three months I reached my ideal weight and began to see results. His knowledge about the human body and physical exercise is impressive. When I see how much strength I have acquired, how much energy I have now and how motivated I am, it's all because of him. He is the BEST!"
+          </blockquote>
+          <figcaption>— Yarizbeth</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Chris is excellent trainer! He is focused on your goals every single session. He is able to explain well why we are doing certain exercises, what muscle it works, why your posture matters in movement. He always makes you feel supported even on an off day! I have been going to Chris for about 6 months, results have been beyond expectation."
+          </blockquote>
+          <figcaption>— Jennifer A.</figcaption>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "Excellent trainer. Very thoughtful of your goals and knows how to structure the sessions for optimal results. Also very motivating yet not pushy. Highly recommend!"
+          </blockquote>
+          <figcaption>— Rita B.</figcaption>
+        </div>
       </div>
 
-      <div class="testimonial">
-        <p class="testimonial-text">
-          "I've had trainers before but Chris is different. He actually explains WHY we're doing each exercise. I've learned more in 3 months than I did in years of gym memberships."
-        </p>
-        <p class="testimonial-author">— Jennifer L., Coconut Grove</p>
-      </div>
-
-      <div class="testimonial">
-        <p class="testimonial-text">
-          "As a busy professional, having Chris come to my building is a game-changer. No excuses, no commute. I'm in the best shape of my life at 45."
-        </p>
-        <p class="testimonial-author">— David M., Downtown Miami</p>
-      </div>
+      <!-- Carousel Navigation -->
+      <button class="carousel-btn prev" aria-label="Previous testimonial">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Next testimonial">&#10095;</button>
+      <div class="carousel-dots"></div>
     </section>
 
     <!-- Form Section -->
@@ -740,6 +954,61 @@
         submitBtn.innerHTML = 'Request Free Session →';
       }
     });
+
+    // Testimonial Carousel
+    const carousel = document.querySelector('.testimonial-carousel');
+    const slides = carousel.querySelectorAll('.testimonial');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    let currentIndex = 0;
+    let autoRotate;
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      slides[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((currentIndex + 1) % slides.length);
+    }
+
+    function prevSlide() {
+      goToSlide((currentIndex - 1 + slides.length) % slides.length);
+    }
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoRotate();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoRotate();
+    });
+
+    function resetAutoRotate() {
+      clearInterval(autoRotate);
+      autoRotate = setInterval(nextSlide, 8000);
+    }
+
+    // Start auto-rotation
+    autoRotate = setInterval(nextSlide, 8000);
   </script>
 </body>
 </html>
