@@ -1,5 +1,5 @@
 # Wolf Wellness Website - Conversation Notes
-**Last Updated**: January 18, 2026
+**Last Updated**: January 19, 2026
 **Project**: wolfwellness.life
 
 ---
@@ -2984,6 +2984,132 @@ All `lastmod` dates updated to `2026-01-16`.
 6. **What Clients Say** - 12 text testimonials carousel
 7. **Request Form** - Name, Email (optional), Phone, Neighborhood, Goal
 8. **Footer** - Instagram link, back to main site
+
+---
+
+## Session: January 19, 2026
+
+### Performance Stack Campaign Analysis
+
+**Campaign Stats at Review:**
+| Metric | Value |
+|--------|-------|
+| Spent | $104.99 |
+| Impressions | 1,398 |
+| Reach | 1,018 |
+| Link Clicks | 43 |
+| Landing Page Views | 28 |
+| CTR (link) | 3.08% |
+| CPC (link) | $2.44 |
+| Cost per LPV | $3.75 |
+| Results (Leads) | 1 (phantom - not received) |
+| Cost per Lead | $104.99 |
+
+**Funnel Leakage Identified:**
+- 43 link clicks → 28 LPVs = 35% drop-off before page loads
+- 28 LPVs → 0 real leads = 0% conversion on landing page
+
+**Root Cause Analysis:**
+1. Landing page too long for cold traffic (too much scrolling before form)
+2. Form buried at bottom of page
+3. No visual of the actual PDF being offered
+4. Missing trust signals for WHO is behind the offer
+
+**Decision:** Pause campaign until landing page improvements made.
+
+---
+
+### Real Results Sections Added to Digital Product Pages
+
+**Strategic Rationale:**
+User insight: "Even though those digital PDFs are not claiming to give those level of results, they can at least make a cold person believe in what I say it CAN do."
+
+The transformation photos prove expertise and build trust in the person behind the product, even if the product itself is just protocols/rituals.
+
+**Bridge Copy Added:**
+> "These are real clients I've trained. The [Performance Stack/7-Day Reset] contains the same foundational protocols I use with all of them."
+
+---
+
+### performance-stack.html Updates
+
+**Real Results Section Added:**
+- Placement: After "What You Get" section, before urgency box/form
+- Layout: Single-column grid (full-width photos)
+- 4 transformations with FULL testimonials:
+
+| Client | Photo | Testimonial Highlight |
+|--------|-------|----------------------|
+| Drew O. | 4-panel before/after | "Complete beginner... now stronger than most" |
+| Angel | Side-by-side | "Just execute what Chris says" |
+| Christina | Side-by-side | "Used to hate the gym, now look forward to sessions" |
+| Jennifer A. | Side-by-side | "Results beyond expectation" |
+
+**CSS Added:**
+- `.results-section` - container
+- `.results-intro` - bridge copy styling
+- `.transformation-grid` - single-column layout
+- `.transformation-item` - card with image + testimonial
+- `.testimonial-text` - italic testimonial styling
+
+**Git Commit:** `10ce829`
+
+---
+
+### reset.html Updates
+
+**Real Results Section Added:**
+- Placement: Right column (aside), after "What Completers Say"
+- 5 transformations (added Yarizbeth):
+
+| Client | Testimonial (condensed for sidebar) |
+|--------|-------------------------------------|
+| Drew O. | "Complete beginner... #1 in Miami hands down" |
+| Angel | "Just execute what Chris says" |
+| Christina | "Used to hate the gym, now look forward to sessions" |
+| Jennifer A. | "Results beyond expectation" |
+| Yarizbeth | "Gain weight in right areas... He is the BEST!" |
+
+**Layout Rebalancing:**
+Moved from right column to left column (bottom):
+- Social proof bar ("They keep 80% long-term...")
+- "What's Inside" preview section (2 PDF images)
+- Preview note ("42 pages...")
+
+This balances the two-column desktop layout.
+
+**Right Column Now Contains:**
+1. "What Completers Say" - 4 text testimonials
+2. "Real Results" - 5 transformation photos with testimonials
+3. Price line
+
+**Git Commit:** `10ce829`
+
+---
+
+### Key Strategic Insights
+
+1. **Borrowed Credibility**: Transformation photos from personal training clients transfer trust to digital products, even though the products don't promise those results.
+
+2. **Full Testimonials > Short Labels**: User requested full testimonials instead of short descriptions because "the short truncated description does not do it as much justice."
+
+3. **Campaign Paused**: Performance Stack Meta campaign paused at $105 spent to implement improvements before spending more.
+
+4. **Next Steps**:
+   - Test updated landing pages with transformation photos
+   - Consider shortening performance-stack.html further
+   - Consider adding form higher on page (above fold)
+   - Unpause campaign once changes are live and verified
+
+---
+
+### Files Modified This Session
+
+| File | Changes |
+|------|---------|
+| performance-stack.html | Added Real Results section with 4 transformations + full testimonials |
+| reset.html | Added Real Results section with 5 transformations, rebalanced column layout |
+| CONVERSATION_NOTES.md | Updated with session notes |
 
 ---
 

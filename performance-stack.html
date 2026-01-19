@@ -555,6 +555,43 @@
         </p>
       </div>
 
+      <!-- Early Form for Ready Users -->
+      <div class="form-box" id="earlyFormContainer">
+        <form id="earlyOptinForm">
+          <label class="form-label" for="earlyName">First Name</label>
+          <input
+            type="text"
+            id="earlyName"
+            name="name"
+            class="input"
+            placeholder="John"
+            required
+          />
+
+          <label class="form-label" for="earlyEmail">Email Address</label>
+          <input
+            type="email"
+            id="earlyEmail"
+            name="email"
+            class="input"
+            placeholder="john@company.com"
+            required
+          />
+
+          <button type="submit" class="btn" id="earlySubmitBtn">
+            Get Instant Access (100% Free) <span aria-hidden="true">→</span>
+          </button>
+
+          <div class="privacy">
+            No spam. Unsubscribe anytime.
+          </div>
+        </form>
+      </div>
+
+      <p style="text-align: center; color: var(--muted); font-size: 14px; margin: 20px 0;">
+        ↓ Keep scrolling to see more proof ↓
+      </p>
+
       <div class="divider"></div>
 
       <!-- NEW: Mechanism Explanation -->
@@ -710,21 +747,21 @@
   </div>
 
   <script>
-    // Meta Pixel Lead event tracking
-    const form = document.getElementById('optinForm');
-    const successMessage = document.getElementById('successMessage');
-    const formContainer = document.getElementById('formContainer');
-    const submitBtn = document.getElementById('submitBtn');
-
-    form.addEventListener('submit', async function(e) {
+    // Shared form submission handler
+    async function handleFormSubmit(e, formId) {
       e.preventDefault();
+
+      const isEarlyForm = formId === 'early';
+      const nameInput = document.getElementById(isEarlyForm ? 'earlyName' : 'name');
+      const emailInput = document.getElementById(isEarlyForm ? 'earlyEmail' : 'email');
+      const submitBtn = document.getElementById(isEarlyForm ? 'earlySubmitBtn' : 'submitBtn');
 
       // Disable button to prevent double-submit
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
-      const firstName = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
+      const firstName = nameInput.value;
+      const email = emailInput.value;
 
       try {
         // Submit to ConvertKit via Vercel function
@@ -761,9 +798,15 @@
           });
         }
 
-        // Show success message
-        formContainer.style.display = 'none';
-        successMessage.classList.add('show');
+        // Hide both forms, show success message
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('earlyFormContainer').style.display = 'none';
+        document.getElementById('successMessage').classList.add('show');
+
+        // Scroll to success message if early form was used
+        if (isEarlyForm) {
+          document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
 
       } catch (error) {
         console.error('Form submission error:', error);
@@ -771,7 +814,11 @@
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Get Instant Access (100% Free) <span aria-hidden="true">→</span>';
       }
-    });
+    }
+
+    // Attach handlers to both forms
+    document.getElementById('earlyOptinForm').addEventListener('submit', (e) => handleFormSubmit(e, 'early'));
+    document.getElementById('optinForm').addEventListener('submit', (e) => handleFormSubmit(e, 'main'));
   </script>
 
 </body>
