@@ -1,5 +1,5 @@
 # Wolf Wellness Website - Conversation Notes
-**Last Updated**: January 16, 2026
+**Last Updated**: January 18, 2026
 **Project**: wolfwellness.life
 
 ---
@@ -2912,6 +2912,78 @@ All `lastmod` dates updated to `2026-01-16`.
 | Phone Number | tel | Yes | Primary contact method |
 | Your Neighborhood | select | Yes | 6 Miami areas + "Other" |
 | Main Fitness Goal | text | No | Optional context |
+
+---
+
+## Session: January 18, 2026
+
+### Real Results Transformation Section Added
+
+**Major Feature**: Added a dedicated "Real Results" section to miami-personal-trainer.html showcasing client transformation photos with testimonials.
+
+**5 Transformation Photos Added**:
+| Client | Photo Type | Testimonial Source |
+|--------|------------|-------------------|
+| Drew O. | 4-panel before/after (dramatic body recomp) | Existing - moved from carousel |
+| Christina | Side-by-side before/after | Existing - moved from carousel |
+| Jennifer A. | Side-by-side before/after | Existing - moved from carousel |
+| Angel | Side-by-side before/after | NEW testimonial written |
+| Yarizbeth | After photo only (results) | Existing - moved from carousel |
+
+**Angel's New Testimonial**:
+> "Chris showed me what to do and I did it. It can't be any simpler than that. If somebody doesn't get results with him it's because they are not executing."
+
+**Files Added to Project**:
+- `drew-transformation.jpg`
+- `christina-transformation.jpg`
+- `jennifer-transformation.jpg`
+- `angel-transformation.jpg`
+- `yarizbeth-transformation.jpg`
+
+**CSS Added**:
+- `.transformation-section` - container for the section
+- `.transformation-container` - individual transformation card with dark background, gold border
+- `.transformation-image` - responsive image styling with shadow
+- `.transformation-quote` - italic testimonial text
+- `.transformation-author` - gold author name
+- `.transformation-label` - "Verified Client" badge
+
+**Duplicate Testimonials Removed from Carousel**:
+- Drew O., Christina, Jennifer A., Yarizbeth removed from carousel
+- Testimonial count updated: 16 → 12 verified reviews
+
+**Section Placement**: Between "Areas I Serve" and "What Clients Say" sections
+
+**Git Commit**: `e3a9e99` - Add Real Results transformation section with 5 client photos
+
+---
+
+### Strategy Discussion: Optional Email Field
+
+**User's Reasoning**:
+- If a lead submits the form but doesn't convert after initial contact/pricing discussion
+- Capture their email to add to a separate nurture sequence
+- Provide quality fitness/health/wellness content to warm them up
+- Potentially convert them later for the free session
+
+**Implementation**:
+- Email field added between Name and Phone
+- Marked as optional: "Email (optional — for wellness tips)"
+- Phone remains required (primary contact method)
+- Reduces friction while capturing nurture opportunity
+
+---
+
+### Current Landing Page Structure (miami-personal-trainer.html)
+
+1. **Hero** - Photo, headline, CTA
+2. **About Chris** - Bio, credentials (24+ years training, 9 years professional)
+3. **What You Get** - Service benefits checklist
+4. **Areas I Serve** - 6 Miami neighborhoods
+5. **Real Results** - 5 transformation photos with testimonials ← NEW
+6. **What Clients Say** - 12 text testimonials carousel
+7. **Request Form** - Name, Email (optional), Phone, Neighborhood, Goal
+8. **Footer** - Instagram link, back to main site
 
 ---
 

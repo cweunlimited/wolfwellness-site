@@ -436,9 +436,66 @@
       line-height: 1.6;
     }
 
+    /* Real Results Section */
+    .results-section{
+      margin: 28px 0;
+    }
+
+    .results-intro{
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .transformation-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .transformation-item{
+      background: rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .transformation-item img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .transformation-item figcaption{
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .transformation-item figcaption strong{
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .transformation-item .testimonial-text{
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 0;
+      font-size: 12px;
+      color: rgba(244,241,232,.75);
+    }
+
     @media (max-width: 520px){
       .card{
         padding: 20px;
+      }
+
+      .transformation-grid{
+        gap: 14px;
       }
     }
   </style>
@@ -549,7 +606,51 @@
 
       <div class="divider"></div>
 
-      <!-- NEW: Urgency Box -->
+      <!-- Real Results Section -->
+      <div class="results-section">
+        <div class="section-title">Real Results</div>
+        <p class="results-intro">
+          These are real clients I've trained. The Performance Stack contains the same foundational protocols I use with all of them.
+        </p>
+
+        <div class="transformation-grid">
+          <figure class="transformation-item">
+            <img src="drew-transformation.jpg" alt="Drew's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Drew O.</strong>
+              <p class="testimonial-text">"Chris is nothing less than phenomenal. I started working out with him as my trainer 2 years ago. I was a complete beginner, did not know much and was very weak with no strength or muscle definition. Ever since then I gained size and I now am stronger than most people who have been lifting for longer because of the knowledge and dedication Chris gave me. #1 in Miami hands down."</p>
+            </figcaption>
+          </figure>
+
+          <figure class="transformation-item">
+            <img src="angel-transformation.jpg" alt="Angel's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Angel</strong>
+              <p class="testimonial-text">"Chris showed me what to do and I did it. It can't be any simpler than that. If somebody doesn't get results with him it's because they are not executing."</p>
+            </figcaption>
+          </figure>
+
+          <figure class="transformation-item">
+            <img src="christina-transformation.jpg" alt="Christina's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Christina</strong>
+              <p class="testimonial-text">"Not only is Chris great at what he does, but he is constantly pushing you to do your best in the gym. He's patient and tailors all of his workouts to fit your personal needs! I used to hate going to the gym, but because of Chris I now look forward to my sessions and feel guilty when I miss a day!"</p>
+            </figcaption>
+          </figure>
+
+          <figure class="transformation-item">
+            <img src="jennifer-transformation.jpg" alt="Jennifer's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Jennifer A.</strong>
+              <p class="testimonial-text">"Chris is excellent trainer! He is focused on your goals every single session. He is able to explain well why we are doing certain exercises, what muscle it works, why your posture matters in movement. He always makes you feel supported even on an off day! I have been going to Chris for about 6 months, results have been beyond expectation."</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Urgency Box -->
       <div class="urgency-box">
         <p>
           <strong>No complexity. No tracking. No gym required.</strong><br>

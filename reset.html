@@ -405,6 +405,51 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
       margin-bottom: 14px;
     }
 
+    /* Real Results Section */
+    .results-section{
+      margin: 20px 0;
+    }
+    .results-intro{
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .transformation-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .transformation-item{
+      background: rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .transformation-item img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .transformation-item figcaption{
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .transformation-item figcaption strong{
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .transformation-item .testimonial-text{
+      font-style: italic;
+      line-height: 1.5;
+      margin: 0;
+      font-size: 12px;
+      color: rgba(244,241,232,.75);
+    }
+
 @media (max-width: 600px){
   body{
     padding-top:16px;
@@ -439,6 +484,10 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
 
   .preview-grid{
     grid-template-columns: 1fr;
+  }
+
+  .transformation-grid{
+    gap: 12px;
   }
 }
 
@@ -526,6 +575,19 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
         </div>
       </div>
 
+      <!-- Moved from right column for balance -->
+      <div class="social-proof-bar" style="margin-top: 20px;">
+        The executives who complete the full 7-Day Reset? <strong>They keep 80% long-term.</strong>
+        <span class="highlight">You've felt the momentum building. Here's how to lock it in permanently.</span>
+      </div>
+
+      <div class="smalltitle" style="margin-top: 20px;">What's Inside</div>
+      <div class="preview-grid">
+        <img src="reset-preview-cover.png" alt="Reset cover page" class="preview-img" />
+        <img src="reset-preview-structure.png" alt="Daily structure breakdown" class="preview-img" />
+      </div>
+      <div class="preview-note">42 pages. Clean, visual, easy to follow — not another boring text dump.</div>
+
 <script>
   const buyBtn = document.getElementById("buyBtn");
 
@@ -586,19 +648,6 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
     </section>
 
     <aside class="card">
-      <!-- Updated Social Proof for "Completers" -->
-      <div class="social-proof-bar">
-        The executives who complete the full 7-Day Reset? <strong>They keep 80% long-term.</strong>
-        <span class="highlight">You've felt the momentum building. Here's how to lock it in permanently.</span>
-      </div>
-
-      <div class="smalltitle">What's Inside</div>
-      <div class="preview-grid">
-        <img src="reset-preview-cover.png" alt="Reset cover page" class="preview-img" />
-        <img src="reset-preview-structure.png" alt="Daily structure breakdown" class="preview-img" />
-      </div>
-      <div class="preview-note">42 pages. Clean, visual, easy to follow — not another boring text dump.</div>
-
       <div class="smalltitle">What Completers Say</div>
       <div class="proof">
         <div class="quote">
@@ -618,6 +667,52 @@ src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
           <div class="quote-author">— James L., Partner, Chicago</div>
         </div>
       </div>
+
+      <!-- Real Results Section -->
+      <div class="results-section">
+        <div class="smalltitle">Real Results</div>
+        <p class="results-intro">
+          These are real clients I've trained. The 7-Day Reset contains the same foundational protocols I use with all of them.
+        </p>
+        <div class="transformation-grid">
+          <figure class="transformation-item">
+            <img src="drew-transformation.jpg" alt="Drew's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Drew O.</strong>
+              <p class="testimonial-text">"Chris is nothing less than phenomenal. I was a complete beginner with no strength or muscle definition. Ever since then I gained size and I now am stronger than most people who have been lifting for longer. #1 in Miami hands down."</p>
+            </figcaption>
+          </figure>
+          <figure class="transformation-item">
+            <img src="angel-transformation.jpg" alt="Angel's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Angel</strong>
+              <p class="testimonial-text">"Chris showed me what to do and I did it. It can't be any simpler than that. If somebody doesn't get results with him it's because they are not executing."</p>
+            </figcaption>
+          </figure>
+          <figure class="transformation-item">
+            <img src="christina-transformation.jpg" alt="Christina's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Christina</strong>
+              <p class="testimonial-text">"He's patient and tailors all of his workouts to fit your personal needs! I used to hate going to the gym, but because of Chris I now look forward to my sessions and feel guilty when I miss a day!"</p>
+            </figcaption>
+          </figure>
+          <figure class="transformation-item">
+            <img src="jennifer-transformation.jpg" alt="Jennifer's transformation" loading="lazy" />
+            <figcaption>
+              <strong>— Jennifer A.</strong>
+              <p class="testimonial-text">"He is focused on your goals every single session. He always makes you feel supported even on an off day! Results have been beyond expectation."</p>
+            </figcaption>
+          </figure>
+          <figure class="transformation-item">
+            <img src="yarizbeth-transformation.jpg" alt="Yarizbeth's results" loading="lazy" />
+            <figcaption>
+              <strong>— Yarizbeth</strong>
+              <p class="testimonial-text">"I decided to gain weight in the right areas and tone my body. In less than three months I reached my ideal weight. His knowledge about the human body is impressive. He is the BEST!"</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
       <div class="who">
         Price: <strong>$49</strong> • PDF • Works on phone, tablet, or desktop
       </div>
