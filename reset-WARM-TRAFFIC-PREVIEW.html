@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHX6E096H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LHX6E096H9');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You Already Know the Rituals Work | W.O.L.F. Wellness</title>
+  <meta name="description" content="The AM/PM rituals you've been using are 30% of the system. Here's the other 70%: 7 progressive workouts, habit scripts, and the structure that makes it permanent." />
+
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1542150893596407');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1542150893596407&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+  <style>
+    :root{
+      --bg:#24513A;
+      --gold:#d4af37;
+      --off:#f4f1e8;
+      --muted:rgba(244,241,232,.78);
+      --card:rgba(0,0,0,.28);
+      --stroke:rgba(212,175,55,.22);
+    }
+    html,body{height:100%;}
+    body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(212,175,55,.10), transparent 55%),
+              radial-gradient(900px 600px at 80% 30%, rgba(0,0,0,.25), transparent 55%),
+              var(--bg);
+  background-attachment: fixed;
+  color:var(--off);
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:24px 14px;
+}
+
+    .wrap{
+      width:min(920px, 100%);
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+    }
+    @media (max-width: 860px){
+      .wrap{grid-template-columns:1fr; gap:14px;}
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .kicker{
+      color: var(--gold);
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    h1{
+      margin: 0 0 10px 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.06;
+      letter-spacing: .02em;
+    }
+    .sub{
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* Progress Acknowledgment Box */
+    .progress-box{
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.22);
+    }
+    .progress-box strong{
+      color: var(--gold);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .progress-box p{
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .progress-box p:last-child{
+      margin-bottom: 0;
+    }
+
+    /* What's NEW Section */
+    .whats-new-box{
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .whats-new-title{
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .whats-new-subtitle{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .whats-new-list{
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .whats-new-list li{
+      margin: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--off);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .whats-new-list li::before{
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .whats-new-list li .desc{
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* Regression Warning Box */
+    .regression-box{
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .regression-title{
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .regression-box p{
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .regression-box p:last-child{
+      margin-bottom: 0;
+    }
+    .regression-box strong{
+      color: var(--off);
+      font-weight: 700;
+    }
+    .regression-highlight{
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Value Box - Updated for FREE → $49 */
+    .value-box{
+      margin: 20px 0;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,.28);
+      background: rgba(0,0,0,.15);
+    }
+    .value-label{
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .value-line{
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 6px 0;
+    }
+    .value-note{
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(244,241,232,.70);
+      font-style: italic;
+    }
+
+    /* Founder Box */
+    .founder-box{
+      margin: 20px 0;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.06);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .founder-img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .founder-text{
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .founder-text strong{
+      color: var(--off);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      appearance:none;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(212,175,55,.18), rgba(212,175,55,.08));
+      color: var(--off);
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: .02em;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(212,175,55,.28), rgba(212,175,55,.14));
+      box-shadow: 0 8px 20px rgba(212,175,55,.18);
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, rgba(212,175,55,.32), rgba(212,175,55,.18));
+      border: 1px solid rgba(212,175,55,.4);
+    }
+
+    /* Guarantee Box */
+    .guarantee-box{
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(212,175,55,.15);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .guarantee-icon{
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .guarantee-text{
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(244,241,232,.82);
+    }
+    .guarantee-text strong{
+      color: var(--gold);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .note{
+      font-size: 13px;
+      color: rgba(244,241,232,.70);
+    }
+    .proof{
+      display:grid;
+      gap:12px;
+    }
+    .quote{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.18);
+      color: rgba(244,241,232,.82);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .quote-author{
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .who{
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(244,241,232,.70);
+    }
+    .smalltitle{
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Social Proof Bar - Updated for completers */
+    .social-proof-bar{
+      margin: 0 0 16px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(212,175,55,.08);
+      border: 1px solid rgba(212,175,55,.18);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .social-proof-bar strong{
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .social-proof-bar .highlight{
+      display: block;
+      margin-top: 6px;
+      color: var(--off);
+      font-weight: 600;
+    }
+
+    /* Preview Grid */
+    .preview-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .preview-img{
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      object-fit: cover;
+      aspect-ratio: 8/11;
+      background: rgba(0,0,0,.25);
+    }
+    .preview-note{
+      font-size: 12px;
+      color: rgba(244,241,232,.65);
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+@media (max-width: 600px){
+  body{
+    padding-top:16px;
+  }
+
+  .wrap{
+    width:100%;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  h1{
+    font-size:28px;
+    line-height:1.1;
+  }
+
+  .sub{
+    font-size:15px;
+  }
+
+  .btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .founder-box{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .preview-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <section class="card">
+      <div class="kicker">W.O.L.F. Wellness</div>
+      <h1>You Already Know the Rituals Work. Now Make Them Permanent.</h1>
+      <p class="sub">
+        The AM + PM protocols you've been using? They're 30% of the system. The 7-Day Reset integrates them with progressive workouts, habit scripts, and the structure that makes it permanent.
+      </p>
+
+      <!-- Progress Acknowledgment -->
+      <div class="progress-box">
+        <strong>You're Already Ahead of 90% of People</strong>
+        <p>Most people never even TRY the AM Ritual. You did.</p>
+        <p>Most people quit after Day 1. You kept going.</p>
+        <p>The 7-Day Reset isn't starting over. It's finishing what you started.</p>
+      </div>
+
+      <!-- What's NEW Section -->
+      <div class="whats-new-box">
+        <div class="whats-new-title">What the Full 7-Day Reset Adds</div>
+        <div class="whats-new-subtitle">The AM/PM rituals you've been using are 30% of the system. Here's the other 70%:</div>
+        <ul class="whats-new-list">
+          <li>
+            <strong>7 Progressive Workouts (15-20 min each)</strong>
+            <span class="desc">Foundation strength, mobility, stability, and tempo work — structured over 7 days with beginner & intermediate modifications</span>
+          </li>
+          <li>
+            <strong>High-Performance Habit Scripts</strong>
+            <span class="desc">15+ behavioral scripts including "One Line of Clarity," "Two-Minute Rule," "Identity Anchor," and more — how executives maintain this for 30+ days</span>
+          </li>
+          <li>
+            <strong>Daily Clarity Exercises</strong>
+            <span class="desc">7 daily mental reset exercises to reduce friction, build self-trust, and maintain momentum beyond the reset</span>
+          </li>
+          <li>
+            <strong>Complete Training Philosophy</strong>
+            <span class="desc">Executive workout guidelines, equipment recommendations, movement safety, progressive overload principles — the WHY behind the system</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Regression Warning (Email Continuity) -->
+      <div class="regression-box">
+        <div class="regression-title">Why Stop Now When You're Already Winning?</div>
+        <p>You've been using the AM/PM rituals. You know they work.</p>
+        <p>But here's what the data shows: <strong>People who stop at just the tools? Back to baseline habits in 2 weeks.</strong></p>
+        <p>The executives who complete the full 7-Day Reset and integrate the workouts, nutrition framework, and habit scripts? <span class="regression-highlight">They maintain 80% of gains for 6+ months.</span></p>
+        <p>You already did the hard part (starting). Don't let the momentum fade.</p>
+      </div>
+
+      <!-- Value Anchor (FREE → $49) -->
+      <div class="value-box">
+        <div class="value-label">SIMPLE MATH</div>
+        <div class="value-line">You got the Performance Stack free. The rituals work.</div>
+        <div class="value-line">The full system that makes it permanent? <strong>$49.</strong></div>
+        <div class="value-note">Less than the cost of one dinner. And this changes the next 90 days.</div>
+      </div>
+
+      <div class="founder-box">
+        <img src="founder-image1.png" alt="Chris Estevez" class="founder-img" />
+        <div class="founder-text">
+          <strong>Built by Christopher Estevez</strong>
+          20+ years studying nutrition and wellness. Personal trainer since 2017. Burned out twice trying to follow the "hustle harder" advice. This is the reset that finally worked.
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="#" id="buyBtn">
+          Finish What You Started — $49 <span aria-hidden="true">→</span>
+        </a>
+        <div class="note">Instant download. Start today.</div>
+      </div>
+
+      <div class="guarantee-box">
+        <div class="guarantee-icon">✓</div>
+        <div class="guarantee-text">
+          <strong>30-Day Money-Back Guarantee</strong>
+          If you don't feel more structured and in control by Day 7, email me and I'll refund you immediately. No questions asked.
+        </div>
+      </div>
+
+<script>
+  const buyBtn = document.getElementById("buyBtn");
+
+  buyBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    // Optional: Meta Pixel event
+    if (window.fbq) {
+      fbq("track", "InitiateCheckout", {
+        content_name: "7-Day Executive Reset",
+        value: 49.00,
+        currency: "USD"
+      });
+    }
+
+    // Give immediate feedback so it doesn't feel dead
+    const originalHtml = buyBtn.innerHTML;
+    buyBtn.style.pointerEvents = "none";
+    buyBtn.style.opacity = "0.85";
+    buyBtn.innerHTML = "Redirecting…";
+
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      // If the API route is missing or failing, you'll see it now
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Checkout API error (${res.status}): ${text || "No response body"}`);
+      }
+
+      const data = await res.json();
+
+      if (data && data.url) {
+        window.location.href = data.url;
+        return;
+      }
+
+      throw new Error("Checkout API returned no URL. Expected JSON: { url: 'https://...' }");
+    } catch (err) {
+      console.error(err);
+      alert(
+        "Checkout failed.\n\n" +
+        "This usually means your Vercel /api/create-checkout-session endpoint is missing or misconfigured.\n\n" +
+        "Error:\n" + (err?.message || err)
+      );
+    } finally {
+      // Restore button state if we didn't redirect
+      buyBtn.style.pointerEvents = "auto";
+      buyBtn.style.opacity = "1";
+      buyBtn.innerHTML = originalHtml;
+    }
+  });
+</script>
+
+    </section>
+
+    <aside class="card">
+      <!-- Updated Social Proof for "Completers" -->
+      <div class="social-proof-bar">
+        The executives who complete the full 7-Day Reset? <strong>They keep 80% long-term.</strong>
+        <span class="highlight">You've felt the momentum building. Here's how to lock it in permanently.</span>
+      </div>
+
+      <div class="smalltitle">What's Inside</div>
+      <div class="preview-grid">
+        <img src="reset-preview-cover.png" alt="Reset cover page" class="preview-img" />
+        <img src="reset-preview-structure.png" alt="Daily structure breakdown" class="preview-img" />
+      </div>
+      <div class="preview-note">42 pages. Clean, visual, easy to follow — not another boring text dump.</div>
+
+      <div class="smalltitle">What Completers Say</div>
+      <div class="proof">
+        <div class="quote">
+          "By Day 4 I felt more energetic, more structured, and more in control of my week. The morning ritual alone was worth $49."
+          <div class="quote-author">— Michael T., VP Operations, Miami</div>
+        </div>
+        <div class="quote">
+          "Simple, clear, and immediately actionable. I was skeptical of another 'program' but this actually helped me reset without overthinking."
+          <div class="quote-author">— Sarah K., Startup Founder, Austin</div>
+        </div>
+        <div class="quote">
+          "The AM/PM structure alone made my days feel lighter and more intentional. Wish I'd found this 6 months ago."
+          <div class="quote-author">— David R., Executive Director, NYC</div>
+        </div>
+      </div>
+      <div class="who">
+        Price: <strong>$49</strong> • PDF • Works on phone, tablet, or desktop
+      </div>
+    </aside>
+  </div>
+</body>
+</html>

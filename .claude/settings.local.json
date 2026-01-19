@@ -5,7 +5,19 @@
       "Bash(wc:*)",
       "Bash(ls:*)",
       "Bash(git config:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(convert:*)",
+      "Bash(magick:*)",
+      "Bash(ipconfig:*)",
+      "Bash(python -m http.server:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nOptimize reset.html landing page for conversions\n\nMajor improvements to increase conversion rate for Test 3:\n\n- Add price anchoring \\($1,750 coaching vs $49\\)\n- Add founder credibility section with photo\n- Enhance CTA button: \"Get Instant Access — $49\"\n- Add 30-day money-back guarantee\n- Add \"What if you don 't reset?\" pain agitation section\n- Improve testimonials with names, titles, and locations\n- Add social proof: \"Join 150+ executives\"\n- Add product preview images \\(cover + daily structure\\)\n- Optimize founder image \\(2.5MB → 792KB\\)\n- Fix background scroll rendering\n- Enhanced button styling with hover effects\n- Mobile responsive improvements\n\nExpected impact: 30-50% conversion rate increase\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(curl -X POST https://wolfwellness.life/api/subscribe-convertkit -H \"Content-Type: application/json\" -d '{\"\"email\"\":\"\"test@example.com\"\",\"\"firstName\"\":\"\"Test\"\"}' -v)",
+      "Bash(copy \"C:\\\\Users\\\\ceste\\\\Desktop\\\\Chris-training-photo1.JPEG\" \"C:\\\\Users\\\\ceste\\\\Desktop\\\\wolfwellness-site\\\\chris-training.jpg\")"
     ]
   }
 }
