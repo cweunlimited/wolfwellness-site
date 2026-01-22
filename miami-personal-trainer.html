@@ -629,36 +629,61 @@
       text-decoration: underline;
     }
 
-    /* Sticky CTA Button */
-    .sticky-cta {
+    /* Mobile Sticky CTA - matches main website style */
+    .mobile-sticky-cta {
+      display: none; /* Hidden by default (desktop) */
       position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
-      color: #1a3a2a;
-      border: none;
-      padding: 14px 28px;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(36, 81, 58, 0.97) 0%, rgba(26, 58, 42, 0.99) 100%);
+      padding: 12px 20px;
+      text-align: center;
       z-index: 1000;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .sticky-cta:hover {
-      transform: translateX(-50%) translateY(-2px);
-      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
-    }
-
-    /* Hide sticky CTA when form is visible */
-    .sticky-cta.hidden {
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
       opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-cta-btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #d4af37 0%, #f5d76e 100%);
+      color: #24513A;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+    }
+
+    .mobile-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.35);
+      background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
+    }
+
+    /* Only show on mobile */
+    @media (max-width: 768px) {
+      .mobile-sticky-cta {
+        display: block;
+      }
+    }
+
+    /* Hide when form is visible */
+    .mobile-sticky-cta.hidden {
+      opacity: 0;
+      transform: translateY(100%);
       pointer-events: none;
-      transition: opacity 0.3s ease;
     }
 
     /* Responsive */
@@ -706,10 +731,10 @@
   </style>
 </head>
 <body>
-  <!-- Sticky CTA Button -->
-  <a href="#formContainer" class="sticky-cta" id="stickyCta">
-    Request Free Session →
-  </a>
+  <!-- Mobile Sticky CTA (hidden on desktop) -->
+  <div class="mobile-sticky-cta" id="mobileCta">
+    <a href="#formContainer" class="mobile-cta-btn">Request Free Session →</a>
+  </div>
 
   <div class="container">
     <!-- Hero Section -->
@@ -1151,24 +1176,33 @@
     // Start auto-rotation
     autoRotate = setInterval(nextSlide, 8000);
 
-    // Sticky CTA visibility - hide when form is in view
-    const stickyCta = document.getElementById('stickyCta');
+    // Mobile Sticky CTA visibility
+    const mobileCta = document.getElementById('mobileCta');
     const formSection = document.querySelector('.form-section');
+    const mobileCtaBtn = mobileCta.querySelector('.mobile-cta-btn');
 
+    // Show CTA after slight delay on page load
+    setTimeout(() => {
+      mobileCta.classList.add('visible');
+    }, 500);
+
+    // Hide when form is in view
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          stickyCta.classList.add('hidden');
+          mobileCta.classList.add('hidden');
+          mobileCta.classList.remove('visible');
         } else {
-          stickyCta.classList.remove('hidden');
+          mobileCta.classList.remove('hidden');
+          mobileCta.classList.add('visible');
         }
       });
     }, { threshold: 0.2 });
 
     observer.observe(formSection);
 
-    // Smooth scroll for sticky CTA
-    stickyCta.addEventListener('click', function(e) {
+    // Smooth scroll for CTA button
+    mobileCtaBtn.addEventListener('click', function(e) {
       e.preventDefault();
       formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
