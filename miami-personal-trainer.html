@@ -81,8 +81,8 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      background: #24513A;
     }
 
     body {
@@ -90,9 +90,8 @@
       background: linear-gradient(135deg, #1a3a2a 0%, #24513A 50%, #1a3a2a 100%);
       background-attachment: fixed;
       color: #f5f0e1;
-      min-height: 100svh;
+      min-height: 100vh;
       line-height: 1.6;
-      padding-bottom: max(0px, env(safe-area-inset-bottom));
     }
 
     .container {
@@ -642,12 +641,15 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(180deg, rgba(36, 81, 58, 0.97) 0%, rgba(26, 58, 42, 0.99) 100%);
+      background: rgba(36, 81, 58, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 12px 20px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
       text-align: center;
       z-index: 1000;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
       opacity: 0;
       transform: translateY(100%);
       transition: opacity 0.3s ease, transform 0.3s ease;
