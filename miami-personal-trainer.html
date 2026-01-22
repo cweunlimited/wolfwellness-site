@@ -629,6 +629,38 @@
       text-decoration: underline;
     }
 
+    /* Sticky CTA Button */
+    .sticky-cta {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+      color: #1a3a2a;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      z-index: 1000;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sticky-cta:hover {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Hide sticky CTA when form is visible */
+    .sticky-cta.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
       .container {
@@ -674,6 +706,11 @@
   </style>
 </head>
 <body>
+  <!-- Sticky CTA Button -->
+  <a href="#formContainer" class="sticky-cta" id="stickyCta">
+    Request Free Session →
+  </a>
+
   <div class="container">
     <!-- Hero Section -->
     <section class="hero">
@@ -1113,6 +1150,28 @@
 
     // Start auto-rotation
     autoRotate = setInterval(nextSlide, 8000);
+
+    // Sticky CTA visibility - hide when form is in view
+    const stickyCta = document.getElementById('stickyCta');
+    const formSection = document.querySelector('.form-section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyCta.classList.add('hidden');
+        } else {
+          stickyCta.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(formSection);
+
+    // Smooth scroll for sticky CTA
+    stickyCta.addEventListener('click', function(e) {
+      e.preventDefault();
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   </script>
 </body>
 </html>
