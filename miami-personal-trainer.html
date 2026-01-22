@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>In-Home Personal Trainer Miami | Free First Session | Chris Estevez</title>
   <meta name="description" content="In-home personal trainer serving Brickell, Coconut Grove, Downtown Miami, Edgewater, Midtown & North Miami Beach. 8+ years experience. NASM-trained. Fully insured. Free first session." />
 
@@ -81,8 +81,8 @@
       padding: 0;
     }
 
-    html {
-      background: #24513A;
+    html, body {
+      height: 100%;
     }
 
     body {
@@ -90,8 +90,9 @@
       background: linear-gradient(135deg, #1a3a2a 0%, #24513A 50%, #1a3a2a 100%);
       background-attachment: fixed;
       color: #f5f0e1;
-      min-height: 100vh;
+      min-height: 100svh;
       line-height: 1.6;
+      padding-bottom: max(0px, env(safe-area-inset-bottom));
     }
 
     .container {
