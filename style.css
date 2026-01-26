@@ -16,6 +16,178 @@ body {
   text-align: center;
 }
 
+/* ========== Navigation Menu ========== */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: rgba(36, 81, 58, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(36, 81, 58, 0.95);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #d4af37;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger to X animation */
+.nav-toggle.active .hamburger-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('hero-bg.webp');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 10000;
+}
+
+/* Dark overlay on top of background image */
+.nav-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 60px;
+  background: rgba(26, 58, 42, 0.93);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease 0.1s;
+}
+
+.nav-overlay.active .nav-links {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #f5f0e1;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d4af37;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: #d4af37;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .nav-toggle {
+    top: 15px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-links {
+    padding: 32px 40px;
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+  }
+}
+
+/* ========== End Navigation Menu ========== */
+
 /* Hero Section */
 /* Hero Section with Background Image */
 .hero {
