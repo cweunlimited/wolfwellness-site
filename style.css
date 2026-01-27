@@ -169,6 +169,11 @@ body {
   width: 100%;
 }
 
+.nav-link-stacked {
+  line-height: 1.15;
+  text-align: center;
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-toggle {
