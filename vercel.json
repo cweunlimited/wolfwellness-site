@@ -7,6 +7,16 @@
   ],
   "redirects": [
     {
+      "source": "/success-stories.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/success-stories",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!api).*)*",
       "destination": "https://www.wolfwellness.life/:path*",
       "permanent": false,
