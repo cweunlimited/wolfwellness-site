@@ -1,5 +1,5 @@
 # Wolf Wellness Website - Conversation Notes
-**Last Updated**: January 19, 2026
+**Last Updated**: January 27, 2026
 **Project**: wolfwellness.life
 
 ---
@@ -3110,6 +3110,211 @@ This balances the two-column desktop layout.
 | performance-stack.html | Added Real Results section with 4 transformations + full testimonials |
 | reset.html | Added Real Results section with 5 transformations, rebalanced column layout |
 | CONVERSATION_NOTES.md | Updated with session notes |
+
+---
+
+## SESSION: January 27, 2026 — Navigation Menu, Mobile Fixes, Google Business Profile, Funnel Strategy
+
+### Mobile Browser Chrome Fix (miami-personal-trainer.html)
+
+**Problem**: The mobile browser chrome (URL bar, bottom nav bar) showed solid green on miami-personal-trainer.html, creating a "double bar" effect with the sticky CTA. Performance-stack and reset pages showed translucent browser bars instead.
+
+**First Attempt (Failed)**: Removed `html { background: #24513A; }` and added `viewport-fit=cover` + safe-area padding. This caused white edges to appear instead.
+
+**Final Fix**: Restored `html { background: #24513A; }` and made the sticky CTA bar more translucent:
+- Changed CTA background from `rgba(36, 81, 58, 0.97)` to `rgba(36, 81, 58, 0.85)`
+- Added `backdrop-filter: blur(10px)` for frosted glass effect
+- Reduced box-shadow intensity
+- Added `padding-bottom: max(12px, env(safe-area-inset-bottom))` for notched devices
+
+**Key Learning**: The solid `html` background is needed to prevent white browser chrome. The translucent look on other pages comes from their body gradient backgrounds.
+
+---
+
+### Google Business Profile Setup
+
+**Business Phone**: (305) 563-9502 (Google Voice number)
+**Business Email**: coach@wolfwellness.life
+
+**Changes Made to miami-personal-trainer.html**:
+- Added phone number to Schema.org structured data: `"telephone": "+1-305-563-9502"`
+- Added email: `"email": "coach@wolfwellness.life"`
+- Added geo coordinates for Miami
+- Added `@id` for schema identification
+- Added clickable phone number in footer: `<a href="tel:+13055639502">(305) 563-9502</a>`
+
+**Changes Made to index.html (main site)**:
+- Added `@id`, email, and phone to LocalBusiness schema
+- Expanded `areaServed` to include specific Miami neighborhoods (Brickell, Coconut Grove, Downtown Miami, Edgewater, Midtown, North Miami Beach) + "Virtual / Global"
+- Updated opening hours to 6am-8pm, 7 days a week
+- Fixed Instagram URL to correct handle: `https://www.instagram.com/wolfwellness.life/`
+- Added LinkedIn and Facebook links back to both Organization and LocalBusiness schemas:
+  - `https://www.linkedin.com/company/w-o-l-f-wellness`
+  - `https://www.facebook.com/share/17dsmc1KYz/?mibextid=wwXIfr`
+
+**Google Business Profile Setup Instructions**:
+1. Go to business.google.com
+2. Business name: "Chris Estevez - In-Home Personal Trainer"
+3. Category: Personal Trainer (primary)
+4. Service-area business (no storefront)
+5. Service areas: Miami neighborhoods listed above
+6. Phone: (305) 563-9502
+7. Website: https://wolfwellness.life/miami-personal-trainer
+8. Verify via phone/text to Google Voice number
+9. No LLC required — sole proprietors can list
+
+---
+
+### Hamburger Navigation Menu (index.html + style.css) ✅ BUILT
+
+**User Request**: Minimalist icon-only navigation menu at top of main page, linking to sections.
+
+**Implementation**:
+
+**HTML** (index.html):
+- Added `<nav>` element with hamburger button and full-screen overlay
+- Added section IDs: `id="about"` and `id="founder"` (services, insights, testimonials, contact already had IDs)
+
+**CSS** (style.css):
+- Fixed hamburger icon (top-right, 48x48px, translucent green background with gold border)
+- Hamburger transforms to X when active
+- Full-screen overlay with hero background image (`hero-bg.webp`) + dark overlay (60% opacity)
+- Menu links in dark green bubble (rounded corners, gold border, drop shadow)
+- Playfair Display serif font at 1.8rem, gold underline on hover
+- Mobile adjustments (smaller toggle, compact bubble)
+- Landscape mode support (max-height: 500px) — compact sizing, scrollable overlay
+
+**JavaScript** (index.html):
+- Toggle menu open/close
+- Smooth scroll to sections with 300ms delay for menu close animation
+- Escape key to close
+- `document.body.style.overflow = 'hidden'` when menu open (prevents scroll)
+
+**Menu Items**:
+| Link | Target |
+|------|--------|
+| Home | Scrolls to top |
+| About | #about section |
+| Founder | #founder section |
+| Programs | #services section |
+| Insights | #insights section |
+| Results | #testimonials section |
+| Contact | #contact section |
+
+**Landscape/Tablet Fix**: Added `overflow-y: auto` to overlay and `max-height: 500px` media query with reduced padding/gap/font sizes to prevent clipping.
+
+---
+
+### Testimonial Fix (index.html)
+
+**Issue**: Jasmine P. testimonial showed "Executive Program" (old program name)
+**Fix**: Changed to "Pinnacle Performance" (current program name)
+
+---
+
+### Funnel Strategy Discussion: $49 PDF Evaluation
+
+**Context**: User asked whether to lower the $49 7-Day Reset price, make it free, or keep it.
+
+**Current Funnel**:
+```
+Free Performance Stack → 5-email nurture → $49 7-Day Reset → $99/month app → $400/month virtual → $1500/month white glove
+```
+
+**Key Data Points**:
+- Direct ads to $49 PDF = 0 purchases (previous campaign)
+- Free Performance Stack → nurture → $49 = 13 leads (none finished sequence yet)
+- Performance Stack emails: 33 sends, 33.3% open rate, 30.3% click rate, 8 PDF downloads
+
+**Discussion on Testimonials**: User asked about showing full testimonials on main site. Advised against — main site is brand hub (premium, restrained), landing pages are direct-response (full social proof). Different pages serve different purposes. Recommended creating a dedicated "Success Stories" page linked from the nav menu.
+
+**Discussion on $49 Pricing**: Initially advised pivoting away from $49 based on zero conversions. User corrected that only 13 leads exist, none have finished the 7-day nurture sequence, and the checkout/purchase columns in Meta were irrelevant to this campaign.
+
+**Revised Assessment**: 13 leads is too small a sample. At 5-8% conversion rate, zero sales from 13 leads is statistically expected. Need 50-100 leads through the full sequence before evaluating.
+
+**User's Future Pivot Consideration**: If the $49 funnel ultimately doesn't work, user is considering making the 7-Day Reset the free lead magnet and driving directly to $99/month Foundation program (delivered via CoachRX app). The Performance Stack is just a piece of the Reset, so the Reset would be a stronger trust-builder. This pivot is NOT being executed yet — waiting for more data.
+
+**CoachRX App**: $99/month Foundation program will be delivered through CoachRX, which handles payment directly (not Stripe). Current blocker: Christopher needs to create introductory onboarding videos for the app to avoid manually onboarding every subscriber.
+
+---
+
+### Meta Ads Campaign Performance (Performance Stack)
+
+**Campaign Results** (as of Jan 27, 2026):
+
+| Metric | Value |
+|--------|-------|
+| Amount Spent | $127.53 |
+| Impressions | 1,571 |
+| Reach | 1,424 |
+| Link Clicks | 81 |
+| Link CTR | 5.16% |
+| CPC (link click) | $1.57 |
+| Landing Page Views | 56 |
+| Cost per Landing Page View | $2.28 |
+| Leads (Website) | 13 |
+| Cost per Lead | $9.81 |
+| Quality Ranking | Average |
+| Engagement Rate Ranking | Average |
+| Conversion Rate Ranking | Below Average (Bottom 35%) |
+| CPM | $81.18 |
+| Frequency | 1.10 |
+
+**Email Sequence Stats** (Email 1 - Delivery):
+
+| Metric | Value |
+|--------|-------|
+| Sends | 33 |
+| Open Rate | 33.3% (~11 opened) |
+| Click Rate | 30.3% (~10 clicked) |
+| Downloads | 8 (clicked download link) |
+| Unsubscribes | 0 |
+
+**Analysis**:
+- Ad creative and targeting working well (5.16% CTR is strong)
+- 33.3% open rate on delivery email is low (should be 60-80%) — attributed to low-intent Meta cold traffic, not deliverability (tested fine on Gmail)
+- 91% of openers clicked download — email content is effective
+- Real engaged leads: ~8 out of 33 (24%)
+- True cost per engaged lead: ~$16
+- Need more volume (40+ engaged leads / 150+ total leads) before evaluating $49 conversion
+
+**Decision**: Let funnel run. Don't change anything yet. Set decision point at 75-100 total leads through full sequence.
+
+---
+
+### Upcoming: Success Stories Page
+
+**Next Task**: Create a dedicated Success Stories page linked from the hamburger navigation menu. Will include:
+- Before/after transformation photos
+- Full-length testimonials
+- Client stories and results
+
+This page serves as deeper social proof for high-intent prospects doing due diligence before applying for coaching programs.
+
+---
+
+### Files Modified This Session
+
+| File | Changes |
+|------|---------|
+| miami-personal-trainer.html | Sticky CTA translucency, browser chrome fix, phone number, schema updates, email fix |
+| index.html | Schema.org updates (phone, email, areaServed, social links), section IDs, hamburger menu HTML + JS |
+| style.css | Hamburger menu CSS (toggle, overlay, bubble, animations, mobile/landscape) |
+| CONVERSATION_NOTES.md | Updated with session notes |
+
+### Commits Made This Session
+
+| Commit | Description |
+|--------|-------------|
+| Fix mobile browser chrome (translucent background attempt) | Removed html background, added viewport-fit — REVERTED |
+| Restore solid html background, add translucent CTA bar | Fixed CTA bar opacity, added backdrop blur |
+| Add phone number and enhance Schema.org for Google Business Profile | Phone, email, geo, sameAs to miami-personal-trainer |
+| Update Schema.org data for consistency across pages | Fixed Instagram URL, added email/neighborhoods to index |
+| Fix Instagram URL to correct handle (wolfwellness.life) | Corrected across both pages |
+| Add LinkedIn and Facebook links back to Schema.org data | Restored social links to both schemas |
+| Add hamburger navigation menu to main website | Full menu implementation |
+| Fix nav menu scrolling in landscape/tablet views | Overflow-y auto, compact landscape sizing |
+| Fix testimonial program name (Executive Program → Pinnacle Performance) | Jasmine P. testimonial correction |
 
 ---
 
