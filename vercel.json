@@ -8,12 +8,12 @@
   "redirects": [
     {
       "source": "/success-stories.html",
-      "destination": "/",
+      "destination": "/#stories",
       "permanent": true
     },
     {
       "source": "/success-stories",
-      "destination": "/",
+      "destination": "/#stories",
       "permanent": true
     },
     {
