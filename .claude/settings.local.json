@@ -112,7 +112,8 @@
       "Bash(python -c ' *)",
       "Bash(git reset *)",
       "Bash(git branch *)",
-      "Bash(git tag *)"
+      "Bash(git tag *)",
+      "Bash(git ls-remote *)"
     ],
     "additionalDirectories": [
       "c:\\c\\Users\\ceste\\Desktop\\HarmonyAndHealthMicroschool-site"
