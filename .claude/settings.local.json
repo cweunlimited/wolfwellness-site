@@ -113,7 +113,9 @@
       "Bash(git reset *)",
       "Bash(git branch *)",
       "Bash(git tag *)",
-      "Bash(git ls-remote *)"
+      "Bash(git ls-remote *)",
+      "WebFetch(domain:www.cookiebot.com)",
+      "WebFetch(domain:termly.io)"
     ],
     "additionalDirectories": [
       "c:\\c\\Users\\ceste\\Desktop\\HarmonyAndHealthMicroschool-site"
