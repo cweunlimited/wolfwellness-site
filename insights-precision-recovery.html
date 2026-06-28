@@ -48,52 +48,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Precision Recovery | W.O.L.F. Wellness Insights</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="insights.css">
-
-  <style>
-    body { background-color: #1b1b1b; color: #f5f0e1; font-family: 'Open Sans', sans-serif; margin: 0; }
-    .insights-hero { position: relative; text-align: center; color: #fff; }
-    .insights-hero img.hero-bg { width: 100%; height: 60vh; object-fit: cover; filter: brightness(55%) contrast(105%); }
-    .insights-hero .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
-    .insights-hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 900px; padding: 0 20px; }
-    .insights-logo { width: 200px; max-width: 40vw; height: auto; display: block; margin: 0 auto 10px; filter: drop-shadow(0 0 12px rgba(212,175,55,0.25)); }
-    .insights-title { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 2.3rem; margin: 8px 0 6px; text-shadow: 0 0 6px rgba(212,175,55,0.4); }
-    .insights-sub { opacity: 0.95; max-width: 900px; margin: 0 auto; line-height: 1.6; }
-
-    .article-wrap { max-width: 900px; margin: 40px auto 80px; padding: 0 20px; }
-    .article-wrap h2 { font-family: 'Playfair Display', serif; color: #d4af37; margin-top: 28px; }
-    .article-wrap p { line-height: 1.8; font-size: 1.05rem; }
-    .article-wrap ul { line-height: 1.7; }
-    .pull-quote { border-left: 3px solid #d4af37; padding-left: 14px; margin: 20px 0; font-style: italic; color: #f5d77b; }
-
-    .cta-strip { margin: 50px auto; text-align:center; background: linear-gradient(90deg, rgba(36,81,58,0.8), rgba(24,58,40,0.9)); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 30px 25px; max-width: 860px; box-shadow: 0 4px 15px rgba(0,0,0,0.35); }
-    .cta-strip h3 { color: #d4af37; margin-bottom: 10px; }
-    .btn-cta { display: inline-block; padding: 12px 30px; background: linear-gradient(90deg, #d4af37, #f5d77b, #d4af37); color: #1b1b1b; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all .3s ease; box-shadow: 0 4px 10px rgba(212,175,55,0.4); }
-    .btn-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 20px rgba(245,215,123,0.9); }
-
-    .topbar { display:flex; align-items:center; gap:12px; padding: 12px 16px; background: #121212; }
-    .topbar a { color: #f5f0e1; text-decoration: none; opacity: 0.9; }
-    .crumb { opacity: .65; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="wolf-redesign.css" />
 </head>
 <body>
-  <div class="topbar">
-    <a href="index.html">&#8592; Back to Home</a>
-    <span class="crumb">/ Insights</span>
-  </div>
 
-  <header class="insights-hero">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1700&q=80" alt="Calm night city office, precision recovery aesthetic">
-    <div class="overlay"></div>
-    <div class="insights-hero-text">
-      <img src="WOLF Wellness Logo ChatGPT Image Oct 20, 2025, 06_37_59 PM.png" alt="W.O.L.F. Wellness Logo" class="insights-logo" />
-      <h1 class="insights-title">Precision Recovery: The Secret Weapon of High-Performing Leaders</h1>
-      <p class="insights-sub">Recovery isn’t downtime, it’s your strategic advantage in leadership and longevity.</p>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="wolf-icon.png" alt="" class="brand-icon" />W.O.L.F. Wellness</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#founder">About</a></li>
+        <li><a href="index.html#programs">Programs</a></li>
+        <li><a href="library.html" class="active">Library</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#contact" class="btn btn-gold">Join the Club</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
-  <main class="article-wrap">
+  <!-- ============ ARTICLE HERO ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <a href="library.html" class="back-link">Back to Library</a>
+      <p class="eyebrow">Recovery</p>
+      <h1>Precision Recovery</h1>
+      <p>Recovery isn't downtime, it's your strategic advantage in leadership and longevity.</p>
+      <p class="article-meta">By <strong>Coach Christopher Estevez</strong> &middot; 5 min read</p>
+    </div>
+  </section>
+
+  <!-- ============ ARTICLE BODY ============ -->
+  <section class="section article">
+    <div class="container">
+      <article class="article-body">
+        <figure class="article-figure"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80" alt="Calm evening setting representing precision recovery" loading="lazy" /></figure>
     <h2>Redefining Recovery for Leaders</h2>
     <p>Most leaders treat recovery as optional. Elite performers treat it as leverage. The difference shows up in clarity, creativity, and consistency, the true drivers of long-term success.</p>
 
@@ -126,16 +121,45 @@
     <h2>Conclusion</h2>
     <p>When you master recovery, you unlock sustainable high performance. Less drag. More power. Leadership that lasts.</p>
 
-    <section class="cta-strip">
-      <h3>Book Your Recovery Optimization Session</h3>
-      <p>Let’s design your personal recovery system, sleep, stress, and performance aligned to your life.</p>
-      <a href="index.html#contact" class="btn-cta">Complimentary Consultation</a>
-    </section>
-  </main>
+      </article>
 
-  <footer style="text-align:center; padding:20px 0; background:#121212;">
-    <p>&copy; <span id="year"></span> W.O.L.F. Wellness. All rights reserved.</p>
+      <aside class="article-cta">
+        <h3>Book Your Recovery Optimization Session</h3>
+        <p>Let's design your personal recovery system, sleep, stress, and performance aligned to your life.</p>
+        <a href="index.html#contact" class="btn btn-gold">Complimentary Consultation</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>W.O.L.F. Wellness</h3>
+          <p>Sophisticated vitality for the modern professional.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="library.html">Library</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 W.O.L.F. Wellness. All rights reserved.</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></svg>
+      </div>
+    </div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+  <script>
+    var t = document.getElementById('navToggle');
+    var h = document.getElementById('header');
+    if (t) t.addEventListener('click', function () { h.classList.toggle('open'); });
+    document.querySelectorAll('.nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () { h.classList.remove('open'); });
+    });
+  </script>
 </body>
 </html>
